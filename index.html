@@ -1,0 +1,1235 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultimate Football AU</title>
+<style>
+:root{--p:#0044aa;--s:#ffcc00;--dark:#1a1f2e;--mid:#1e2940;--lt:#f0f4ff;--mt:#b8c4d8;--lk:#60a5fa;--nh:64px;--fb:'Arial Black',Impact,sans-serif;--fa:Arial,Helvetica,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--dark);color:var(--lt);font-family:var(--fa);font-size:14px;min-height:100vh;overflow-x:hidden}
+a{color:var(--lk);text-decoration:none}a:hover{text-decoration:underline;color:var(--s)}
+.lang-bar{background:#111828;border-bottom:1px solid #1e3050;padding:5px 14px;display:flex;align-items:center;justify-content:flex-end}
+.lang-inner{display:flex;align-items:center;gap:8px;background:#1a2645;border:1px solid #2a4a7e;border-radius:3px;padding:4px 10px}
+.lang-inner span{font-size:10px;color:var(--s);font-family:'Arial Black',Impact,sans-serif;letter-spacing:2px;text-transform:uppercase}
+.lang-inner select{background:transparent;border:none;color:#c8d4ec;font-size:11px;outline:none;cursor:pointer}
+.lang-inner select:hover{color:#fff}
+.lang-inner select option{background:#1a2645;color:#e0e0e0}
+.site-header{background:radial-gradient(ellipse at 50% 0%,#0d2878 0%,#111828 70%);border-bottom:4px solid var(--s);text-align:center;padding:20px 8px 10px}
+.site-header img{max-width:480px;width:85%;filter:drop-shadow(0 0 20px #0055ff99)}
+.tagline{color:var(--s);font-size:11px;letter-spacing:4px;text-transform:uppercase;margin-top:6px;font-family:var(--fb)}
+nav{background:linear-gradient(180deg,#1e3068,#0f1e45);border-bottom:3px solid var(--s);z-index:1000}
+nav ul{list-style:none;display:flex;justify-content:center;height:var(--nh);max-width:1140px;margin:0 auto}
+nav ul li{display:flex;min-width:200px}
+nav ul li a{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff;font-family:var(--fb);font-size:13px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #ffffff33;transition:background .15s,color .15s;cursor:pointer;gap:2px}
+nav ul li a .ni{font-size:18px}
+nav ul li a:hover,nav ul li a.active{background:var(--s);color:#000}
+.body{max-width:1140px;margin:0 auto;padding:20px 14px;display:grid;grid-template-columns:1fr 290px;gap:20px}
+@media(max-width:700px){.body{grid-template-columns:1fr}}
+.panel{background:var(--mid);border:1px solid #2a4a7e;border-radius:4px;overflow:hidden;margin-bottom:20px}
+.ph{background:linear-gradient(90deg,#0055cc,#0a2060);padding:8px 14px;font-family:var(--fb);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--s);border-bottom:2px solid var(--s);display:flex;align-items:center;gap:8px}
+.pb{padding:14px}
+.hero{background:linear-gradient(135deg,#0d2060,#111828 65%);border:1px solid #2a4a7e;border-left:5px solid var(--s);border-radius:4px;padding:28px 24px;margin-bottom:20px;position:relative;overflow:hidden}
+.hero::before{content:"⚽";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:100px;opacity:.05}
+.hero h1{font-family:var(--fb);font-size:26px;color:#fff;text-transform:uppercase;text-shadow:2px 2px 8px #000;line-height:1.15}
+.hero h1 span{color:var(--s)}
+.hero p{margin-top:10px;color:var(--mt);font-size:13px;max-width:500px;line-height:1.6}
+.btn-o{display:inline-block;margin-top:14px;padding:9px 22px;background:transparent;border:2px solid var(--s);color:var(--s);font-family:var(--fb);font-size:12px;letter-spacing:1px;text-transform:uppercase;border-radius:3px;font-weight:900;cursor:pointer;transition:background .15s}
+.btn-o:hover{background:var(--s);color:#000}
+.sr{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #2a4a7e}
+.sr:last-child{border-bottom:none}
+.tn{color:var(--lt);font-family:var(--fb);font-size:12px}.tn.r{text-align:right}
+.sc{background:var(--p);color:var(--s);font-family:var(--fb);font-size:15px;padding:4px 12px;border-radius:3px;text-align:center;min-width:64px;white-space:nowrap;border:1px solid #2a4a7e}
+.sm{text-align:center;font-size:10px;color:var(--mt);padding:4px 0}
+.st{width:100%;border-collapse:collapse;font-size:11px}
+.st th{background:#1e3060;color:var(--s);padding:6px;text-align:center;font-family:var(--fb);font-size:10px}
+.st th:first-child{text-align:left}
+.st td{padding:8px 6px;border-bottom:1px solid #2a3a5a;text-align:center;color:#c8d4ec}
+.st td:first-child{text-align:left;color:#fff;font-weight:bold}
+.st tr:hover td{background:#1e2e50}
+.st tr.hl td{color:var(--s)}
+.sl{padding:0}.sl li{list-style:none;border-bottom:1px solid #2a3a5a;padding:7px 0}.sl li:last-child{border-bottom:none}
+.sl a{color:var(--lk);font-size:12px}.sl a::before{content:"▶ ";color:var(--s);font-size:9px}
+.cb{background:#151d35;border:1px solid #2a4a7e;border-radius:3px;height:220px;overflow-y:auto;padding:10px;margin-bottom:8px;font-size:12px}
+.cm{margin-bottom:7px;line-height:1.5}.cm .u{color:var(--s);font-weight:bold}.cm .t{color:#c8d4ec}
+.ci{display:flex;gap:6px}
+.ci input{flex:1;background:#1a2645;border:1px solid #2a4a7e;color:#fff;padding:7px 10px;border-radius:3px;font-size:12px;outline:none}
+.ci input:focus{border-color:var(--s)}
+.ci button{background:var(--p);color:#fff;border:none;padding:7px 14px;border-radius:3px;cursor:pointer;font-size:11px;font-family:var(--fb);letter-spacing:1px;transition:background .15s}
+.ci button:hover{background:var(--s);color:#000}
+.clr-btn{background:#7f1d1d!important}.clr-btn:hover{background:#991b1b!important;color:#fff!important}
+.name-row{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.name-row input{flex:1;background:#1a2440;border:1px solid #2a4a7e;color:#e0e0e0;padding:8px 10px;border-radius:3px;font-size:12px;outline:none}
+.name-row input:focus{border-color:var(--s)}
+.join-btn{background:var(--p);color:#fff;border:none;padding:8px 16px;border-radius:3px;cursor:pointer;font-family:var(--fb);font-size:11px;letter-spacing:1px;white-space:nowrap}
+.join-btn:hover{background:var(--s);color:#000}
+.active-name{font-size:11px;color:#8a9bb8;margin-bottom:10px}
+.active-name strong{color:var(--s)}
+.active-name a{color:#6b7fa0;margin-left:8px;font-size:11px;cursor:pointer}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tc{background:#151d35;border:2px solid #1e3a6e;border-radius:8px;padding:20px 14px 14px;text-align:center;transition:border-color .2s,transform .2s,box-shadow .2s}
+.tc:hover{border-color:var(--s);transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,68,170,.4)}
+.tc .bg{display:flex;align-items:center;justify-content:center;height:90px;margin-bottom:12px}
+.tc .bg img{width:90px;height:90px;object-fit:contain}
+.tc h3{font-family:var(--fb);font-size:13px;color:#fff;margin-bottom:6px;line-height:1.3}
+.tc p{font-size:11px;color:var(--mt);margin-bottom:2px}
+.sb{font-size:11px;color:var(--s);display:inline-block;margin-top:8px;cursor:pointer;background:none;border:1px solid var(--s);padding:4px 10px;border-radius:3px;transition:background .15s,color .15s;font-family:inherit}
+.sb:hover{background:var(--s);color:#000}
+.od{display:inline-block;width:8px;height:8px;background:#34d864;border-radius:50%;margin-right:5px;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+footer{background:#111828;border-top:3px solid #ffcc00;text-align:center;padding:16px;font-size:11px;color:var(--mt);margin-top:10px}
+footer a{color:var(--s)}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:3000;opacity:0;pointer-events:none;transition:opacity .3s}
+.ov.open{opacity:1;pointer-events:all}
+.dr{position:fixed;top:0;left:0;width:360px;max-width:92vw;height:100%;background:#1a2645;border-right:3px solid var(--s);z-index:3001;transform:translateX(-100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;display:flex;flex-direction:column}
+.dr.open{transform:translateX(0)}
+.dh{background:linear-gradient(90deg,#0055cc,#0a2060);padding:16px 18px;border-bottom:2px solid var(--s);display:flex;align-items:center;gap:14px;flex-shrink:0}
+.dh img{width:64px;height:64px;object-fit:contain;flex-shrink:0}
+.dht h2{font-family:var(--fb);font-size:16px;color:#fff;text-transform:uppercase;line-height:1.2}
+.dht p{font-size:11px;color:var(--s);letter-spacing:2px;text-transform:uppercase;margin-top:3px}
+.dc{margin-left:auto;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:4px 8px;line-height:1;border-radius:3px}
+.dc:hover{background:rgba(255,255,255,.15)}
+.db{padding:16px;flex:1}
+.ds{margin-bottom:18px}
+.dt{font-family:var(--fb);font-size:10px;letter-spacing:2px;color:var(--s);text-transform:uppercase;margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid #2a4a7e}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tile{background:#151d35;border:1px solid #2a4a7e;border-radius:4px;padding:10px 12px;text-align:center}
+.tile .v{font-family:var(--fb);font-size:20px;color:var(--s);line-height:1}
+.tile .l{font-size:10px;color:#8a9bb8;margin-top:3px;text-transform:uppercase;letter-spacing:1px}
+.pr{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #1e3050}
+.pr:last-child{border-bottom:none}
+.pn{font-family:var(--fb);font-size:13px;color:var(--s);width:24px;text-align:center;flex-shrink:0}
+.pi{flex:1}.pna{font-size:12px;color:#fff;font-weight:bold}.pp{font-size:10px;color:#8a9bb8;margin-top:1px}
+.fds{display:flex;gap:3px;margin-top:8px}
+.fd{width:18px;height:18px;border-radius:3px;font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-family:var(--fb)}
+.fd.w{background:#166534;color:#86efac}.fd.d{background:#78350f;color:#fde68a}.fd.l{background:#7f1d1d;color:#fca5a5}
+
+/* TOP BAR */
+.top-bar{background:#111828;border-bottom:1px solid #1e3050;padding:5px 14px;display:flex;align-items:center;justify-content:space-between}
+.auth-bar{display:flex;align-items:center;gap:6px}
+.auth-btn{font-family:'Arial Black',Impact,sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:3px;cursor:pointer;border:1px solid;transition:background .15s,color .15s}
+.auth-btn.login{background:transparent;border-color:#1e3a6e;color:#9ca3af}
+.auth-btn.login:hover{border-color:#ffcc00;color:#ffcc00}
+.auth-btn.register{background:#0044aa;border-color:#0044aa;color:#fff}
+.auth-btn.register:hover{background:#ffcc00;border-color:#ffcc00;color:#000}
+.auth-btn.myaccount{background:#1a2645;border-color:#ffcc00;color:#ffcc00}
+.auth-btn.myaccount:hover{background:#ffcc00;color:#000}
+.auth-user-label{font-size:10px;color:#6b7fa0;font-family:'Arial Black',Impact,sans-serif;letter-spacing:1px;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* ACCOUNT FORMS */
+.auth-tabs{display:flex;margin-bottom:20px;border-bottom:2px solid #2a4a7e}
+.auth-tab{padding:10px 24px;font-family:'Arial Black',Impact,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#8a9bb8;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:color .15s}
+.auth-tab.active{color:#ffcc00;border-bottom-color:#ffcc00}
+.form-field{margin-bottom:14px}
+.form-field label{display:block;font-size:10px;color:#9ca3af;margin-bottom:5px;letter-spacing:1px;text-transform:uppercase;font-family:'Arial Black',Impact,sans-serif}
+.form-field input,.form-field select{width:100%;background:#151d35;border:1px solid #2a4a7e;color:#fff;padding:10px 12px;border-radius:3px;font-size:13px;outline:none;transition:border-color .15s}
+.form-field input:focus,.form-field select:focus{border-color:#ffcc00}
+.form-field select option{background:#151d35}
+.submit-btn{width:100%;background:#0044aa;color:#fff;border:none;padding:12px;border-radius:3px;font-family:'Arial Black',Impact,sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:background .15s;margin-top:4px}
+.submit-btn:hover{background:#ffcc00;color:#000}
+.form-error{color:#f87171;font-size:12px;margin-top:8px;padding:8px 10px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);border-radius:3px;display:none}
+.form-success{color:#86efac;font-size:12px;margin-top:8px;padding:8px 10px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:3px;display:none}
+.profile-card{background:#151d35;border:1px solid #2a4a7e;border-radius:6px;padding:20px;margin-bottom:16px;display:flex;align-items:center;gap:16px}
+.profile-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#0055cc,#0a2060);border:2px solid #ffcc00;display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff;font-family:'Arial Black',Impact,sans-serif;flex-shrink:0}
+.profile-info h2{font-family:'Arial Black',Impact,sans-serif;font-size:18px;color:#fff;text-transform:uppercase}
+.profile-info p{font-size:12px;color:#9ca3af;margin-top:3px}
+.profile-badge{display:inline-block;margin-top:6px;padding:2px 10px;border-radius:3px;font-size:10px;font-family:'Arial Black',Impact,sans-serif;letter-spacing:1px;text-transform:uppercase}
+.badge-admin{background:#7f1d1d;color:#fca5a5;border:1px solid #991b1b}
+.badge-mod{background:#78350f;color:#fde68a;border:1px solid #92400e}
+.badge-member{background:#1e3060;color:#ffcc00;border:1px solid #2a4a7e}
+.save-btn{background:#0044aa;border:none;color:#fff;padding:8px 16px;border-radius:3px;font-family:'Arial Black',Impact,sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:background .15s}
+.save-btn:hover{background:#ffcc00;color:#000}
+.danger-btn{background:transparent;border:1px solid #7f1d1d;color:#f87171;padding:8px 16px;border-radius:3px;font-family:'Arial Black',Impact,sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:background .15s}
+.danger-btn:hover{background:#7f1d1d;color:#fff}
+
+
+/* ADMIN PANEL */
+.admin-table{width:100%;border-collapse:collapse;font-size:12px}
+.admin-table th{background:#1a2e5a;color:#ffcc00;padding:8px 10px;text-align:left;font-family:'Arial Black',Impact,sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.admin-table td{padding:9px 10px;border-bottom:1px solid #2a3a5a;color:#c8d4ec;vertical-align:middle}
+.admin-table tr:hover td{background:#1e2e50}
+.role-badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:10px;font-family:'Arial Black',Impact,sans-serif;letter-spacing:1px;text-transform:uppercase}
+.role-select{background:#151d35;border:1px solid #2a4a7e;color:#f0f4ff;padding:4px 8px;border-radius:3px;font-size:11px;cursor:pointer;outline:none}
+.role-select:focus{border-color:#ffcc00}
+.apply-btn{background:#0055cc;border:none;color:#fff;padding:4px 10px;border-radius:3px;font-family:'Arial Black',Impact,sans-serif;font-size:10px;letter-spacing:1px;cursor:pointer;transition:background .15s}
+.apply-btn:hover{background:#ffcc00;color:#000}
+.admin-notice{background:rgba(255,204,0,.08);border:1px solid rgba(255,204,0,.2);border-radius:4px;padding:10px 14px;font-size:12px;color:#b8c4d8;margin-bottom:16px;line-height:1.6}
+
+
+/* ── MOBILE RESPONSIVE ──────────────────────────────────── */
+@media(max-width:768px){
+  .top-bar{padding:4px 8px;gap:6px}
+  .lang-inner span{display:none}
+  .auth-btn{font-size:9px;padding:3px 8px;letter-spacing:0}
+  .auth-user-label{display:none}
+  .site-header img{max-width:90%}
+  .tagline{font-size:9px;letter-spacing:2px;padding:0 8px}
+  nav{overflow-x:auto}
+  nav ul{justify-content:flex-start;min-width:max-content;height:54px}
+  nav ul li{min-width:80px}
+  nav ul li a{font-size:9px;letter-spacing:0;padding:0 4px;gap:1px}
+  nav ul li a .ni{font-size:16px}
+  .body{grid-template-columns:1fr!important;padding:12px 10px;gap:12px}
+  .hero{padding:18px 14px}
+  .hero::before{font-size:60px}
+  .hero h1{font-size:18px}
+  .hero p{font-size:12px}
+  .btn-o{padding:8px 16px;font-size:11px}
+  .ph{font-size:10px;padding:7px 10px}
+  .tn{font-size:10px}
+  .sc{font-size:13px;padding:3px 8px;min-width:52px}
+  .pb{padding:10px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .pb table{min-width:480px}
+  .pb table td,.pb table th{padding:6px 5px;white-space:nowrap;font-size:11px}
+  .tg{grid-template-columns:repeat(2,1fr);gap:10px}
+  .tc{padding:14px 10px 12px}
+  .tc .bg{height:64px}
+  .tc .bg img{width:64px;height:64px}
+  .tc h3{font-size:11px}
+  .tc p{font-size:10px}
+  .sb{font-size:10px;padding:3px 8px;margin-top:6px}
+  .dr{width:100%;max-width:100%}
+  .dh{padding:12px 14px}
+  .dh img{width:48px;height:48px}
+  .dht h2{font-size:14px}
+  .cb{height:180px}
+  .ci{flex-wrap:wrap;gap:4px}
+  .ci button{padding:7px 10px;font-size:10px}
+  .name-row{flex-wrap:wrap}
+  .profile-card{flex-direction:column;text-align:center;gap:10px}
+  .auth-tab{padding:8px 14px;font-size:10px;white-space:nowrap}
+  .st td,.st th{padding:6px 4px;font-size:10px}
+  footer{font-size:10px;padding:12px}
+}
+@media(max-width:400px){
+  .tg{grid-template-columns:1fr}
+  nav ul li{min-width:70px}
+  .hero h1{font-size:16px}
+}
+
+
+/* ── INLINE ADMIN EDITING ─────────────────────────────── */
+.admin-editable{position:relative}
+body.is-admin .admin-editable{cursor:pointer}
+body.is-admin .admin-editable::after{content:"✏️";position:absolute;top:-6px;right:-6px;font-size:11px;opacity:0;transition:opacity .2s;pointer-events:none}
+body.is-admin .admin-editable:hover::after{opacity:1}
+body.is-admin .admin-editable:hover{outline:2px dashed rgba(255,204,0,.5);outline-offset:3px;border-radius:2px}
+.edit-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9000;display:flex;align-items:center;justify-content:center;padding:20px}
+.edit-modal{background:#1a2440;border:1px solid #ffcc00;border-radius:6px;padding:24px;width:100%;max-width:520px;box-shadow:0 20px 60px rgba(0,0,0,.8)}
+.edit-modal h3{font-family:'Arial Black',Impact,sans-serif;color:#ffcc00;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.edit-modal textarea{width:100%;background:#060d1f;border:1px solid #2a4a7e;color:#f0f4ff;padding:10px 12px;border-radius:3px;font-size:13px;line-height:1.6;resize:vertical;min-height:80px;outline:none;font-family:Arial,Helvetica,sans-serif}
+.edit-modal textarea:focus{border-color:#ffcc00}
+.edit-modal-btns{display:flex;gap:8px;margin-top:12px;justify-content:flex-end}
+.edit-save-btn{background:#ffcc00;color:#000;border:none;padding:8px 20px;border-radius:3px;font-family:'Arial Black',Impact,sans-serif;font-size:11px;letter-spacing:1px;cursor:pointer}
+.edit-save-btn:hover{background:#ffd700}
+.edit-cancel-btn{background:transparent;color:#8a9bb8;border:1px solid #2a4a7e;padding:8px 16px;border-radius:3px;font-family:'Arial Black',Impact,sans-serif;font-size:11px;letter-spacing:1px;cursor:pointer}
+.edit-cancel-btn:hover{border-color:#8a9bb8}
+.edit-reset-btn{background:transparent;color:#f87171;border:1px solid #7f1d1d;padding:8px 16px;border-radius:3px;font-family:'Arial Black',Impact,sans-serif;font-size:11px;letter-spacing:1px;cursor:pointer;margin-right:auto}
+.edit-reset-btn:hover{background:#7f1d1d;color:#fff}
+.admin-edit-bar{background:linear-gradient(90deg,#7f1d1d,#0044aa);border-bottom:2px solid #ffcc00;padding:6px 14px;font-size:11px;color:#ffcc00;font-family:'Arial Black',Impact,sans-serif;letter-spacing:1px;display:none;align-items:center;gap:10px}
+.admin-edit-bar span{color:#ccc;font-family:Arial,sans-serif;font-size:11px;letter-spacing:0}
+
+
+/* FIXTURES ADMIN */
+.fix-edit-btn{background:#0044aa;color:#fff;border:none;padding:3px 10px;border-radius:3px;font-size:10px;cursor:pointer;font-family:'Arial Black',Impact,sans-serif}
+.fix-edit-btn:hover{background:#ffcc00;color:#000}
+.fix-del-btn{background:#7f1d1d;color:#fff;border:none;padding:3px 10px;border-radius:3px;font-size:10px;cursor:pointer;font-family:'Arial Black',Impact,sans-serif}
+.fix-del-btn:hover{background:#991b1b}
+
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="lang-inner">
+    <span>&#127760; Lang</span>
+    <select id="langSelect" onchange="setLang(this.value)">
+      <option value="en">&#127462;&#127482; English</option>
+      <option value="es">&#127466;&#127480; Español</option>
+      <option value="pt">&#127463;&#127479; Português</option>
+      <option value="de">&#127465;&#127466; Deutsch</option>
+      <option value="it">&#127470;&#127481; Italiano</option>
+      <option value="ja">&#127471;&#127477; 日本語</option>
+      <option value="zh">&#127464;&#127475; 简体中文</option>
+    </select>
+  </div>
+  <div class="auth-bar" id="authBarGuest">
+    <button class="auth-btn login" onclick="show(4,document.getElementById('n4'));switchAuthTab('login')">&#128274; Login</button>
+    <button class="auth-btn register" onclick="show(4,document.getElementById('n4'));switchAuthTab('register')">&#10024; Register</button>
+  </div>
+  <div class="auth-bar" id="authBarUser" style="display:none">
+    <span class="auth-user-label" id="topBarUsername"></span>
+    <button class="auth-btn myaccount" onclick="show(4,document.getElementById('n4'))">&#128100; My Account</button>
+    <button class="auth-btn" id="adminTopBtn" onclick="show(5,document.getElementById('n4'))" style="display:none;background:#1a2e5a;border-color:#ffcc00;color:#ffcc00">&#9881;&#65039; Admin</button>
+  </div>
+</div>
+
+
+<!-- ADMIN EDIT BAR -->
+<div class="admin-edit-bar" id="adminEditBar">
+  ✏️ ADMIN EDIT MODE <span>Click any highlighted text to edit it</span>
+</div>
+
+<!-- EDIT MODAL -->
+<div class="edit-modal-overlay" id="editModalOverlay" style="display:none" onclick="if(event.target===this)closeEditModal()">
+  <div class="edit-modal">
+    <h3>✏️ Edit Content</h3>
+    <textarea id="editModalText" rows="4"></textarea>
+    <div style="font-size:10px;color:#6b7fa0;margin-top:6px">Changes are saved to Firebase and visible to all visitors instantly.</div>
+    <div class="edit-modal-btns">
+      <button class="edit-reset-btn" onclick="resetEditContent()">↺ Reset to default</button>
+      <button class="edit-cancel-btn" onclick="closeEditModal()">Cancel</button>
+      <button class="edit-save-btn" onclick="saveEditContent()">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<div class="ov" id="ov" onclick="closeDr()"></div>
+<div class="dr" id="dr">
+  <div class="dh">
+    <img id="drImg" src="" alt="">
+    <div class="dht"><h2 id="drName">Team</h2><p id="drSub">A-League Men</p></div>
+    <button class="dc" onclick="closeDr()">&#10005;</button>
+  </div>
+  <div class="db" id="drBody"></div>
+</div>
+
+<div class="site-header">
+  <img src="images/image_13.jpg" alt="Ultimate Football AU">
+  <p class="tagline admin-editable" data-t="tagline" data-edit-key="tagline" onclick="openEdit(this)">Australia's Premier Football Community &mdash; Grand Final: Auckland FC vs Sydney FC | Sat 23 May</p>
+</div>
+
+<nav><ul>
+  <li><a id="n0" class="active" onclick="show(0,this)"><span class="ni">&#127968;</span><span data-t="nav_home">Home</span></a></li>
+  <li><a id="n1" onclick="show(1,this)"><span class="ni">&#128197;</span><span data-t="nav_fixtures">Fixtures</span></a></li>
+  <li><a id="n2" onclick="show(2,this)"><span class="ni">&#128085;</span><span data-t="nav_teams">Teams</span></a></li>
+  <li><a id="n3" onclick="show(3,this)"><span class="ni">&#128172;</span><span data-t="nav_chat">Chat</span></a></li>
+  <li><a id="n4" onclick="show(4,this)"><span class="ni">&#128100;</span><span>Account</span></a></li>
+</ul></nav>
+
+<!-- HOME -->
+<div id="s0" class="body">
+  <main>
+    <div class="hero">
+      <h1 data-t="home_title" class="admin-editable" data-edit-key="home_title" onclick="openEdit(this)">Welcome to <span>Ultimate Football AU</span></h1>
+      <p data-t="home_desc" class="admin-editable" data-edit-key="home_desc" onclick="openEdit(this)">Your home for Australian football news, live scores, match forums, and the best football community in the country.</p>
+      <span class="btn-o" onclick="show(3,document.getElementById('n3'))" data-t="live_chat">Live Chat</span>
+    </div>
+    <div class="panel">
+      <div class="ph">&#9917; <span class="admin-editable" data-edit-key="results_title" onclick="openEdit(this)">2025-26 Finals Series &mdash; Latest Results</span></div>
+      <div class="pb">
+        <p class="sm" style="color:var(--s);font-weight:bold">&#127942; <span data-t="elim_label">ELIMINATION FINALS</span> &mdash; 25-26 Apr 2026</p>
+        <div class="sr"><span class="tn">&#128993; Auckland FC</span><span class="sc">1&ndash;1*</span><span class="tn r">Melbourne City &#128153;</span></div>
+        <p class="sm" data-t="result1">Auckland win on penalties (AET) &mdash; Go Media Stadium</p>
+        <div class="sr"><span class="tn">&#128308; Melbourne Victory</span><span class="sc">0&ndash;1</span><span class="tn r">Sydney FC &#128309;</span></div>
+        <p class="sm" data-t="result2">Wood 80' &mdash; AAMI Park</p>
+        <p class="sm" style="color:var(--s);font-weight:bold;margin-top:10px">&#9889; <span data-t="semi_label">SEMI-FINALS</span> &mdash; Leg 1, 9 May 2026</p>
+        <div class="sr"><span class="tn">&#128993; Auckland FC</span><span class="sc">1&ndash;1</span><span class="tn r">Adelaide United &#10084;</span></div>
+        <p class="sm" data-t="result3">Brook 24' | Crawford 63' &mdash; Go Media Stadium</p>
+        <div class="sr"><span class="tn">&#128309; Sydney FC</span><span class="sc">1&ndash;1</span><span class="tn r">Newcastle Jets &#9899;&#128308;</span></div>
+        <p class="sm" data-t="result4">Stamatelopoulos 50' | E.Adams 58' &mdash; Allianz Stadium</p>
+        <p class="sm" style="color:#ffcc00;font-weight:bold;margin-top:8px">&#9889; <span data-t="leg2_label">SEMI-FINALS &mdash; Leg 2 this weekend!</span></p>
+        <p class="sm">Fri 15 May: Adelaide vs Auckland &mdash; Coopers Stadium</p>
+        <p class="sm">Sat 16 May: Newcastle vs Sydney &mdash; McDonald Jones Stadium</p>
+        <p class="sm" style="color:#8a9bb8;margin-top:6px" data-t="gf_label">Grand Final: 22-23 May 2026</p>
+      </div>
+    </div>
+  </main>
+  <aside style="display:flex;flex-direction:column">
+    <div class="panel">
+      <div class="ph">&#128202; <span data-t="ladder_title">2025-26 Ladder</span></div>
+      <div class="pb" style="padding:8px 6px">
+        <table class="st"><thead><tr><th>#</th><th data-t="th_team">Team</th><th data-t="th_pts">Pts</th></tr></thead><tbody>
+          <tr class="hl"><td>1&#127942;</td><td>Newcastle Jets</td><td>37</td></tr>
+          <tr class="hl"><td>2</td><td>Adelaide Utd</td><td>35</td></tr>
+          <tr class="hl"><td>3</td><td>Auckland FC</td><td>32</td></tr>
+          <tr class="hl"><td>4</td><td>Sydney FC</td><td>30</td></tr>
+          <tr class="hl"><td>5</td><td>Melb Victory</td><td>28</td></tr>
+          <tr class="hl"><td>6</td><td>Macarthur FC</td><td>25</td></tr>
+          <tr><td>7</td><td>Mariners</td><td>23</td></tr>
+          <tr><td>8</td><td>Brisbane Roar</td><td>23</td></tr>
+          <tr><td>9</td><td>Melbourne City</td><td>22</td></tr>
+          <tr><td>10</td><td>Perth Glory</td><td>21</td></tr>
+          <tr><td>11</td><td>Western Sydney</td><td>20</td></tr>
+          <tr><td>12</td><td>Wellington</td><td>20</td></tr>
+        </tbody></table>
+        <p style="font-size:10px;color:var(--s);margin-top:6px;text-align:center" data-t="top6">&#127942; Top 6 in Finals</p>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="ph">&#128994; <span data-t="online_title">Online Now</span></div>
+      <div class="pb" style="font-size:12px;color:#c8d4ec;line-height:1.8">
+        <div><span class="od"></span><strong id="onlineCount" style="color:#fff">...</strong> <span data-t="visitors_online">visitors online</span></div>
+        <div style="margin-top:8px;color:#8a9bb8;font-size:11px" data-t="firebase_label">Live count powered by Firebase.</div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- FIXTURES -->
+<div id="s1" class="body" style="display:none">
+  <main>
+    <div class="hero"><h1 class="admin-editable" data-edit-key="fix_title" onclick="openEdit(this)">A-League <span>Fixtures</span></h1><p class="admin-editable" data-edit-key="fix_desc" onclick="openEdit(this)">2025-26 Finals Series &mdash; results and upcoming matches.</p></div>
+    <div class="panel">
+      <div class="ph">&#127942; Finals Series 2025-26</div>
+      <div class="pb" style="overflow-x:auto">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;color:#c8d4ec;min-width:500px">
+          <thead><tr style="border-bottom:2px solid #2a4a7e;color:#ffcc00;text-align:left">
+            <th style="padding:8px 6px">Date</th><th style="padding:8px 6px">Round</th><th style="padding:8px 6px">Home</th>
+            <th style="padding:8px 6px;text-align:center">Score</th><th style="padding:8px 6px">Away</th><th style="padding:8px 6px">Venue</th><th style="padding:8px 6px">Status</th>
+          </tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #2a3a5a"><td class="admin-editable" data-edit-key="fix_d1" onclick="openEdit(this)" style="padding:7px 6px;white-space:nowrap">2 May</td><td style="padding:7px 6px"><span style="background:#0044aa;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px">Elim</span></td><td class="admin-editable" data-edit-key="fix_h1" onclick="openEdit(this)" style="padding:7px 6px">Auckland FC</td><td class="admin-editable" data-edit-key="fix_s1" onclick="openEdit(this)" style="padding:7px 6px;text-align:center;font-weight:bold;color:#f0f4ff">1&ndash;1*</td><td class="admin-editable" data-edit-key="fix_a1" onclick="openEdit(this)" style="padding:7px 6px">Melbourne City</td><td class="admin-editable" data-edit-key="fix_v1" onclick="openEdit(this)" style="padding:7px 6px">Go Media</td><td class="admin-editable" data-edit-key="fix_st1" onclick="openEdit(this)" style="padding:7px 6px;color:#22c55e">AKL 7-6 pens</td></tr>
+            <tr style="border-bottom:1px solid #2a3a5a"><td class="admin-editable" data-edit-key="fix_d2" onclick="openEdit(this)" style="padding:7px 6px;white-space:nowrap">3 May</td><td style="padding:7px 6px"><span style="background:#0044aa;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px">Elim</span></td><td class="admin-editable" data-edit-key="fix_h2" onclick="openEdit(this)" style="padding:7px 6px">Melbourne Victory</td><td class="admin-editable" data-edit-key="fix_s2" onclick="openEdit(this)" style="padding:7px 6px;text-align:center;font-weight:bold;color:#f0f4ff">0&ndash;1</td><td class="admin-editable" data-edit-key="fix_a2" onclick="openEdit(this)" style="padding:7px 6px">Sydney FC</td><td class="admin-editable" data-edit-key="fix_v2" onclick="openEdit(this)" style="padding:7px 6px">AAMI Park</td><td class="admin-editable" data-edit-key="fix_st2" onclick="openEdit(this)" style="padding:7px 6px;color:#22c55e">Wood 80'</td></tr>
+            <tr style="border-bottom:1px solid #2a3a5a;background:rgba(255,204,0,.05)"><td class="admin-editable" data-edit-key="fix_d3" onclick="openEdit(this)" style="padding:7px 6px;white-space:nowrap">9 May</td><td style="padding:7px 6px"><span style="background:#ffcc00;color:#000;padding:2px 6px;border-radius:3px;font-size:10px">Semi L1</span></td><td class="admin-editable" data-edit-key="fix_h3" onclick="openEdit(this)" style="padding:7px 6px">Auckland FC</td><td class="admin-editable" data-edit-key="fix_s3" onclick="openEdit(this)" style="padding:7px 6px;text-align:center;font-weight:bold;color:#f0f4ff">1&ndash;1</td><td class="admin-editable" data-edit-key="fix_a3" onclick="openEdit(this)" style="padding:7px 6px">Adelaide United</td><td class="admin-editable" data-edit-key="fix_v3" onclick="openEdit(this)" style="padding:7px 6px">Go Media</td><td class="admin-editable" data-edit-key="fix_st3" onclick="openEdit(this)" style="padding:7px 6px;color:#22c55e">FT</td></tr>
+            <tr style="border-bottom:1px solid #2a3a5a;background:rgba(255,204,0,.05)"><td class="admin-editable" data-edit-key="fix_d4" onclick="openEdit(this)" style="padding:7px 6px;white-space:nowrap">9 May</td><td style="padding:7px 6px"><span style="background:#ffcc00;color:#000;padding:2px 6px;border-radius:3px;font-size:10px">Semi L1</span></td><td class="admin-editable" data-edit-key="fix_h4" onclick="openEdit(this)" style="padding:7px 6px">Sydney FC</td><td class="admin-editable" data-edit-key="fix_s4" onclick="openEdit(this)" style="padding:7px 6px;text-align:center;font-weight:bold;color:#f0f4ff">1&ndash;1</td><td class="admin-editable" data-edit-key="fix_a4" onclick="openEdit(this)" style="padding:7px 6px">Newcastle Jets</td><td class="admin-editable" data-edit-key="fix_v4" onclick="openEdit(this)" style="padding:7px 6px">Allianz</td><td class="admin-editable" data-edit-key="fix_st4" onclick="openEdit(this)" style="padding:7px 6px;color:#22c55e">FT</td></tr>
+            <tr style="border-bottom:1px solid #2a3a5a;background:rgba(255,204,0,.05)"><td class="admin-editable" data-edit-key="fix_d5" onclick="openEdit(this)" style="padding:7px 6px;white-space:nowrap">15 May</td><td style="padding:7px 6px"><span style="background:#ffcc00;color:#000;padding:2px 6px;border-radius:3px;font-size:10px">Semi L2</span></td><td class="admin-editable" data-edit-key="fix_h5" onclick="openEdit(this)" style="padding:7px 6px">Adelaide United</td><td class="admin-editable" data-edit-key="fix_s5" onclick="openEdit(this)" style="padding:7px 6px;text-align:center;font-weight:bold;color:#f0f4ff">0&ndash;3</td><td class="admin-editable" data-edit-key="fix_a5" onclick="openEdit(this)" style="padding:7px 6px">Auckland FC</td><td class="admin-editable" data-edit-key="fix_v5" onclick="openEdit(this)" style="padding:7px 6px">Coopers</td><td class="admin-editable" data-edit-key="fix_st5" onclick="openEdit(this)" style="padding:7px 6px;color:#22c55e">AKL 4-1 agg</td></tr>
+            <tr style="border-bottom:1px solid #2a3a5a;background:rgba(255,204,0,.05)"><td class="admin-editable" data-edit-key="fix_d6" onclick="openEdit(this)" style="padding:7px 6px;white-space:nowrap">16 May</td><td style="padding:7px 6px"><span style="background:#ffcc00;color:#000;padding:2px 6px;border-radius:3px;font-size:10px">Semi L2</span></td><td class="admin-editable" data-edit-key="fix_h6" onclick="openEdit(this)" style="padding:7px 6px">Newcastle Jets</td><td class="admin-editable" data-edit-key="fix_s6" onclick="openEdit(this)" style="padding:7px 6px;text-align:center;font-weight:bold;color:#f0f4ff">1&ndash;1*</td><td class="admin-editable" data-edit-key="fix_a6" onclick="openEdit(this)" style="padding:7px 6px">Sydney FC</td><td class="admin-editable" data-edit-key="fix_v6" onclick="openEdit(this)" style="padding:7px 6px">McDonald Jones</td><td class="admin-editable" data-edit-key="fix_st6" onclick="openEdit(this)" style="padding:7px 6px;color:#22c55e">SYD 4-2 pens</td></tr>
+            <tr style="background:rgba(229,62,62,.08)"><td class="admin-editable" data-edit-key="fix_d7" onclick="openEdit(this)" style="padding:7px 6px;white-space:nowrap"><strong style="color:#ffcc00">23 May</strong></td><td style="padding:7px 6px"><span style="background:#e53e3e;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px">Grand Final</span></td><td class="admin-editable" data-edit-key="fix_h7" onclick="openEdit(this)" style="padding:7px 6px">Auckland FC</td><td class="admin-editable" data-edit-key="fix_s7" onclick="openEdit(this)" style="padding:7px 6px;text-align:center;font-weight:bold;color:#ffcc00">vs</td><td class="admin-editable" data-edit-key="fix_a7" onclick="openEdit(this)" style="padding:7px 6px">Sydney FC</td><td class="admin-editable" data-edit-key="fix_v7" onclick="openEdit(this)" style="padding:7px 6px">Go Media</td><td class="admin-editable" data-edit-key="fix_st7" onclick="openEdit(this)" style="padding:7px 6px;color:#ffcc00">6:10pm AEST</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  <aside>
+m
+  </main>
+  <aside>
+    <div class="panel"><div class="ph">&#127941; <span data-t="top_scorers">Top Scorers</span></div><div class="pb"><ul class="sl">
+      <li><a href="#">&#129351; Jesse Randall (Auckland) &mdash; 9</a></li>
+      <li><a href="#">&#129352; Lachlan Rose (Newcastle) &mdash; 8</a></li>
+      <li><a href="#">&#129352; Ifeanyi Eze (Wellington) &mdash; 8</a></li>
+      <li><a href="#">&#129352; Max Caputo (Melb City) &mdash; 8</a></li>
+      <li><a href="#">&#129352; Sam Cosgrove (Auckland) &mdash; 8</a></li>
+    </ul></div></div>
+    <div class="panel"><div class="ph">&#127919; <span data-t="top_assists">Top Assisters</span></div><div class="pb"><ul class="sl">
+      <li><a href="#">&#129351; Juan Mata (Melb Victory) &mdash; 12</a></li>
+      <li><a href="#">&#129352; Daniel Wilmering (Newcastle) &mdash; 7</a></li>
+      <li><a href="#">&#129353; Francis DeVries (Auckland) &mdash; 6</a></li>
+      <li><a href="#">=3. Jesse Randall (Auckland) &mdash; 6</a></li>
+    </ul></div></div>
+  </aside>
+</div>
+
+<!-- TEAMS -->
+<div id="s2" class="body" style="display:none">
+  <main>
+    <div class="hero"><h1 class="admin-editable" data-edit-key="teams_title" onclick="openEdit(this)">A-League <span>Teams</span></h1><p class="admin-editable" data-edit-key="teams_desc" onclick="openEdit(this)">Browse all clubs. Click <strong style="color:var(--s)">View Squad</strong> to see stats and players.</p></div>
+    <div class="panel">
+      <div class="ph">&#128085; <span data-t="all_clubs">A-League Men &mdash; All 12 Clubs</span></div>
+      <div class="pb"><div class="tg" id="tgrid"></div></div>
+    </div>
+  </main>
+  <aside>
+    <div class="panel"><div class="ph">&#128202; <span data-t="ladder_title">2025-26 Ladder</span></div><div class="pb" style="padding:8px 6px">
+      <table class="st"><thead><tr><th>#</th><th data-t="th_team">Team</th><th data-t="th_pts">Pts</th></tr></thead><tbody>
+        <tr class="hl"><td>1&#127942;</td><td>Newcastle Jets</td><td>37</td></tr>
+        <tr class="hl"><td>2</td><td>Adelaide Utd</td><td>35</td></tr>
+        <tr class="hl"><td>3</td><td>Auckland FC</td><td>32</td></tr>
+        <tr class="hl"><td>4</td><td>Sydney FC</td><td>30</td></tr>
+        <tr class="hl"><td>5</td><td>Melb Victory</td><td>28</td></tr>
+        <tr class="hl"><td>6</td><td>Macarthur FC</td><td>25</td></tr>
+        <tr><td>7</td><td>Mariners</td><td>23</td></tr>
+        <tr><td>8</td><td>Brisbane Roar</td><td>23</td></tr>
+        <tr><td>9</td><td>Melbourne City</td><td>22</td></tr>
+        <tr><td>10</td><td>Perth Glory</td><td>21</td></tr>
+        <tr><td>11</td><td>Western Sydney</td><td>20</td></tr>
+        <tr><td>12</td><td>Wellington</td><td>20</td></tr>
+      </tbody></table>
+    </div></div>
+  </aside>
+</div>
+
+<!-- CHAT -->
+<div id="s3" class="body" style="display:none">
+  <main>
+    <div class="hero"><h1 class="admin-editable" data-edit-key="chat_title" onclick="openEdit(this)">Fan Chat Room</h1><p class="admin-editable" data-edit-key="chat_desc" onclick="openEdit(this)">Talk football live with fans from across Australia. Keep it clean, keep it footy!</p></div>
+    <div class="panel">
+      <div class="ph">&#128172; <span data-t="general_chat">General Chat</span> &mdash; <span class="od"></span><span id="chatOnlineCount">...</span> <span data-t="online_label">online</span></div>
+      <div class="pb">
+        <!-- Locked: not logged in -->
+        <div id="chatLocked" style="display:none;text-align:center;padding:32px 20px;background:#151d35;border:1px solid #2a4a7e;border-radius:6px;margin-bottom:12px">
+          <div style="font-size:52px;margin-bottom:12px">&#128274;</div>
+          <p style="font-family:'Arial Black',Impact,sans-serif;font-size:14px;color:#f0f4ff;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Account Required</p>
+          <p style="font-size:12px;color:#8a9bb8;margin-bottom:16px;line-height:1.6">You need an account to join the live chat.<br>It&rsquo;s free and takes 30 seconds!</p>
+          <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+            <button class="join-btn" onclick="show(4,document.getElementById('n4'));switchAuthTab('login')">&#128274; Login</button>
+            <button class="join-btn" style="background:#ffcc00;color:#000" onclick="show(4,document.getElementById('n4'));switchAuthTab('register')">&#10024; Register Free</button>
+          </div>
+        </div>
+        <!-- Logged in chat -->
+        <div id="chatLoggedIn" style="display:none">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+            <span class="od"></span>
+            <span style="font-size:11px;color:#b8c4d8">Chatting as <strong id="chat-display-name" style="color:#ffcc00"></strong></span>
+          </div>
+          <div class="cb" id="chatBox">
+            <div style="text-align:center;color:#6b7fa0;font-size:12px;padding:20px 0" data-placeholder="1">Loading messages...</div>
+          </div>
+          <div class="ci">
+            <input type="text" id="chatInput" placeholder="Type a message..." maxlength="300" onkeydown="if(event.key==='Enter')sendChat()">
+            <button id="chatSendBtn" onclick="sendChat()">SEND</button>
+            <button class="clr-btn" id="clearChatBtn" onclick="clearChat()" style="display:none">&#128465; CLEAR</button>
+          </div>
+          <p style="font-size:10px;color:#6b7fa0;margin-top:6px">&#9888;&#65039; Chat is moderated. No spam, abuse, or off-topic posts.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside>
+    <div class="panel"><div class="ph">&#128994; <span data-t="whos_online">Who's Online</span></div><div class="pb" style="font-size:12px;color:#c8d4ec;line-height:2">
+      <span class="od"></span><span id="onlineCount2">...</span> <span data-t="visitors_online">visitors online</span><br>
+      <span style="color:#8a9bb8;font-size:11px" data-t="firebase_label">Live count powered by Firebase.</span>
+    </div></div>
+    <div class="panel"><div class="ph">&#128203; <span data-t="chat_rules_title">Chat Rules</span></div><div class="pb" style="font-size:11px;color:#c8d4ec;line-height:2">
+      <span class="admin-editable" data-edit-key="chat_rules" onclick="openEdit(this)">1. Respect all users<br>2. No abuse, racism or hate<br>3. Keep it football-related<br>4. No spam or advertising<br>5. No personal info sharing<br>6. Mods have final say</span>
+      <br><br><span style="color:var(--s)" data-t="ban_warning">Violators will be permanently banned.</span>
+    </div></div>
+  </aside>
+</div>
+
+
+<!-- ACCOUNT -->
+<div id="s4" class="body" style="display:none">
+  <main>
+    <div class="hero">
+      <h1>&#128100; <span id="accountTitle">My Account</span></h1>
+      <p id="accountDesc">Manage your profile and account settings.</p>
+    </div>
+
+    <!-- GUEST: Login / Register -->
+    <div id="guestForms">
+      <div class="auth-tabs">
+        <div class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')">&#128274; Login</div>
+        <div class="auth-tab" id="tabRegister" onclick="switchAuthTab('register')">&#10024; Register</div>
+      </div>
+      <div id="formLogin">
+        <div class="panel"><div class="ph">&#128274; Member Login</div><div class="pb">
+          <div class="form-field"><label>Email or Username</label><input type="text" id="loginEmail" placeholder="your@email.com.au or username"></div>
+          <div class="form-field"><label>Password</label><input type="password" id="loginPass" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" onkeydown="if(event.key==='Enter')doLogin()"></div>
+          <button class="submit-btn" onclick="doLogin()">&#128274; LOGIN</button>
+          <div class="form-error" id="loginError"></div>
+        </div></div>
+      </div>
+      <div id="formRegister" style="display:none">
+        <div class="panel"><div class="ph">&#10024; Create Free Account</div><div class="pb">
+          <div class="form-field"><label>Display Name</label><input type="text" id="regName" placeholder="e.g. SydneyMike88" maxlength="20"></div>
+          <div class="form-field"><label>Email Address</label><input type="email" id="regEmail" placeholder="your@email.com.au"></div>
+          <div class="form-field"><label>Password (min 6 characters)</label><input type="password" id="regPass" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"></div>
+          <div class="form-field"><label>Favourite Team</label>
+            <select id="regTeam">
+              <option value="">Select your team...</option>
+              <option>Newcastle Jets</option><option>Adelaide United</option><option>Auckland FC</option>
+              <option>Sydney FC</option><option>Melbourne Victory</option><option>Melbourne City</option>
+              <option>Central Coast Mariners</option><option>Brisbane Roar</option><option>Macarthur FC</option>
+              <option>Perth Glory</option><option>Western Sydney Wanderers</option><option>Wellington Phoenix</option>
+            </select>
+          </div>
+          <button class="submit-btn" onclick="doRegister()">&#10024; CREATE ACCOUNT</button>
+          <div class="form-error" id="regError"></div>
+          <div class="form-success" id="regSuccess"></div>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- LOGGED IN: Profile -->
+    <div id="userProfile" style="display:none">
+      <div class="profile-card">
+        <div class="profile-avatar" id="profileAvatar">?</div>
+        <div class="profile-info">
+          <h2 id="profileName">Username</h2>
+          <p id="profileEmail">email</p>
+          <span class="profile-badge badge-member" id="profileBadge">Member</span>
+          <p style="font-size:11px;color:#6b7fa0;margin-top:6px" id="profileTeam"></p>
+        </div>
+      </div>
+      <div class="panel"><div class="ph">&#9999;&#65039; Edit Profile</div><div class="pb">
+        <div class="form-field"><label>Display Name</label><input type="text" id="editName" placeholder="Your display name" maxlength="20"></div>
+        <div class="form-field"><label>Favourite Team</label>
+          <select id="editTeam">
+            <option value="">Select your team...</option>
+            <option>Newcastle Jets</option><option>Adelaide United</option><option>Auckland FC</option>
+            <option>Sydney FC</option><option>Melbourne Victory</option><option>Melbourne City</option>
+            <option>Central Coast Mariners</option><option>Brisbane Roar</option><option>Macarthur FC</option>
+            <option>Perth Glory</option><option>Western Sydney Wanderers</option><option>Wellington Phoenix</option>
+          </select>
+        </div>
+        <button class="save-btn" onclick="saveProfile()">&#10003; Save Changes</button>
+        <div class="form-error" id="editError"></div>
+        <div class="form-success" id="editSuccess"></div>
+      </div></div>
+      <div class="panel"><div class="ph">&#128274; Change Password</div><div class="pb">
+        <div class="form-field"><label>New Password (min 6 characters)</label><input type="password" id="newPass" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"></div>
+        <button class="save-btn" onclick="changePassword()">&#10003; Update Password</button>
+        <div class="form-error" id="passError"></div>
+        <div class="form-success" id="passSuccess"></div>
+      </div></div>
+      <div class="panel" style="border-color:#3f0a0a"><div class="ph" style="background:linear-gradient(90deg,#991b1b,#5a0f0f)">&#9888;&#65039; Danger Zone</div><div class="pb" style="display:flex;gap:10px;align-items:center">
+        <button class="danger-btn" onclick="doLogout()">&#128274; Sign Out</button>
+        <span style="font-size:11px;color:#6b7fa0">Signs you out on this device.</span>
+      </div></div>
+    </div>
+  </main>
+  <aside>
+    <div class="panel"><div class="ph">&#127942; Community Stats</div><div class="pb" style="font-size:12px;color:#c8d4ec;line-height:2.2">
+      <div><span style="color:#ffcc00;font-family:'Arial Black',Impact,sans-serif;font-size:22px" id="memberCount">...</span><br>Registered Members</div>
+      <div style="margin-top:10px"><span class="od"></span><strong id="onlineCount3" style="color:#34d864">...</strong> online right now</div>
+      <div style="margin-top:10px;font-size:11px;color:#6b7fa0">Stats update in real-time</div>
+    </div></div>
+    <div class="panel"><div class="ph">&#128274; Benefits</div><div class="pb admin-editable" style="font-size:11px;color:#ccc;line-height:2" data-edit-key="account_benefits" onclick="openEdit(this)">&#10003; Saved display name for chat<br>&#10003; Favourite team on profile<br>&#10003; Mod / admin eligibility<br>&#10003; Community recognition<br><br><span style="color:#ffcc00">Free to join &mdash; always!</span></div></div>
+  </aside>
+</div>
+
+
+<!-- ADMIN PANEL -->
+<div id="s5" class="body" style="display:none">
+  <main>
+    <div class="hero">
+      <h1>&#9881;&#65039; <span>Admin Panel</span></h1>
+      <p>Manage user roles and moderate the community.</p>
+    </div>
+
+    <div class="panel">
+      <div class="ph">&#128100; User Management</div>
+      <div class="pb">
+        <div class="admin-notice">&#9888;&#65039; Changes take effect immediately. Admins can manage all users. Mods can clear chat.</div>
+        <div style="margin-bottom:12px;display:flex;gap:8px;align-items:center">
+          <input type="text" id="adminSearch" placeholder="Search by name or email..." style="flex:1;background:#151d35;border:1px solid #2a4a7e;color:#f0f4ff;padding:8px 12px;border-radius:3px;font-size:12px;outline:none" oninput="filterUsers()">
+        </div>
+        <div style="overflow-x:auto">
+          <table class="admin-table">
+            <thead><tr>
+              <th>User</th>
+              <th>Email</th>
+              <th>Joined</th>
+              <th>Fav Team</th>
+              <th>Role</th>
+              <th>Action</th>
+            </tr></thead>
+            <tbody id="adminUserTable">
+              <tr><td colspan="6" style="text-align:center;color:#6b7fa0;padding:20px">Loading users...</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="adminUserCount" style="font-size:11px;color:#6b7fa0;margin-top:10px"></p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="ph">&#128172; Chat Moderation</div>
+      <div class="pb" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <button class="danger-btn" onclick="adminClearChat()">&#128465; Clear All Chat Messages</button>
+        <span style="font-size:11px;color:#6b7fa0">Permanently deletes all messages from the live chat.</span>
+      </div>
+    </div>
+  </main>
+  <aside>
+    <div class="panel"><div class="ph">&#128202; Live Stats</div><div class="pb" style="font-size:12px;color:#c8d4ec;line-height:2.2">
+      <div><span style="color:#ffcc00;font-family:'Arial Black',Impact,sans-serif;font-size:22px" id="adminTotalUsers">...</span><br>Total Members</div>
+      <div style="margin-top:10px"><span style="color:#86efac;font-family:'Arial Black',Impact,sans-serif;font-size:16px" id="adminTotalMembers">...</span><br><span style="font-size:11px">Standard Members</span></div>
+      <div style="margin-top:10px"><span style="color:#fde68a;font-family:'Arial Black',Impact,sans-serif;font-size:16px" id="adminTotalAdmins">...</span><br><span style="font-size:11px">Admins &amp; Mods</span></div>
+      <div style="margin-top:10px"><span class="od"></span><span id="onlineCount3">...</span> online now</div>
+    </div></div>
+    <div class="panel"><div class="ph">&#9881;&#65039; Role Guide</div><div class="pb" style="font-size:11px;color:#c8d4ec;line-height:2">
+      <span style="color:#fca5a5;font-family:'Arial Black',Impact,sans-serif">ADMIN</span> &mdash; Full access<br>
+      <span style="color:#fde68a;font-family:'Arial Black',Impact,sans-serif">MOD</span> &mdash; Clear chat<br>
+      <span style="color:#ffcc00;font-family:'Arial Black',Impact,sans-serif">MEMBER</span> &mdash; Standard user<br>
+    </div></div>
+  </aside>
+</div>
+
+<footer>
+  <p>&copy; 2026 <a href="#">UltimateFootballAU.com.au</a> &mdash; <span data-t="footer_rights">All Rights Reserved</span> | <a href="https://docs.google.com/forms/d/e/1FAIpQLSeISKxPEmvaSn8VQU3N99QPWxJNOUgIQqM_pqF4_W029vlQ1Q/viewform?usp=publish-editor" target="_blank" data-t="footer_contact">Contact Us</a></p>
+  <p style="margin-top:5px;font-size:10px" data-t="footer_disclaimer">Unofficial fan community. Not affiliated with Football Australia or the A-League.</p>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script>
+firebase.initializeApp({
+  apiKey:"AIzaSyDQc6k_tEVrnTUO4t__wB536fQoNeD2SkM",
+  authDomain:"ultimatefootballau.firebaseapp.com",
+  databaseURL:"https://ultimatefootballau-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId:"ultimatefootballau"
+});
+var auth=firebase.auth();
+var _db=firebase.database();
+// Session-only persistence - signs out when browser closes
+auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
+</script>
+<script>
+var LANG={en:{tagline:"Australia's Premier Football Community - 2025-26 Finals Underway!",nav_home:'Home',nav_fixtures:'Fixtures',nav_teams:'Teams',nav_chat:'Chat',home_title:'Welcome to <span>Ultimate Football AU</span>',home_desc:'Your home for Australian football news, live scores, match forums, and the best football community in the country.',live_chat:'Live Chat',results_title:'2025-26 Finals Series - Latest Results',elim_label:'ELIMINATION FINALS',semi_label:'SEMI-FINALS',leg2_label:'SEMI-FINALS - Leg 2 this weekend!',result1:'Auckland win on penalties (AET) - Go Media Stadium',result2:"Wood 80' - AAMI Park",result3:"Brook 24' | Crawford 63' - Go Media Stadium",result4:"Stamatelopoulos 50' | E.Adams 58' - Allianz Stadium",gf_label:'Grand Final: 22-23 May 2026',ladder_title:'2025-26 Ladder',th_team:'Team',th_pts:'Pts',top6:'Top 6 in Finals',online_title:'Online Now',visitors_online:'visitors online',firebase_label:'Live count powered by Firebase.',fixtures_desc:'2025-26 Finals Series - results and upcoming matches.',finals_title:'Finals Series 2025-26',th_date:'Date',th_round:'Round',th_home:'Home',th_score:'Score',th_away:'Away',th_venue:'Venue',th_status:'Status',elim_short:'Elim',semi_short:'Semi',gf_short:'Grand Final',top_scorers:'Top Scorers',top_assists:'Top Assisters',teams_desc:'Browse all clubs. Click <strong style="color:var(--s)">View Squad</strong> to see stats and players.',view_squad:'View Squad',all_clubs:'A-League Men - All 12 Clubs',chat_title:'Fan Chat Room',chat_desc:'Talk football live with fans from across Australia. Keep it clean, keep it footy!',general_chat:'General Chat',online_label:'online',enter_name:'Enter your display name to join chat...',join_btn:'JOIN CHAT',chatting_as:'Chatting as',change_name:'[change name]',enter_name_prompt:'Enter your name above to load messages...',type_msg:'Type a message...',send_btn:'SEND',clear_btn:'CLEAR',chat_warning:'Chat is moderated. No spam, abuse, or off-topic posts.',whos_online:"Who's Online",chat_rules_title:'Chat Rules',rules_body:'1. Respect all users<br>2. No abuse, racism or hate<br>3. Keep it football-related<br>4. No spam or advertising<br>5. No personal info sharing<br>6. Mods have final say',ban_warning:'Violators will be permanently banned.',footer_rights:'All Rights Reserved',footer_terms:'Terms of Use',footer_contact:'Contact Us',footer_disclaimer:'Unofficial fan community. Not affiliated with Football Australia or the A-League.',squad_stats:'Season Stats',squad_form:'Recent Form',squad_coach:'Head Coach',squad_venue:'Venue',squad_players:'Key Players',view_squad_btn:'View Squad',pts_lbl:'Points',wdl_lbl:'W-D-L',gf_lbl:'Goals For',gd_lbl:'Goal Diff'},
+es:{tagline:'La Comunidad Futbolistica Premier de Australia - Finales 2025-26 en Marcha!',nav_home:'Inicio',nav_fixtures:'Partidos',nav_teams:'Equipos',nav_chat:'Chat',home_title:'Bienvenido a <span>Ultimate Football AU</span>',home_desc:'Tu hogar para noticias de futbol australiano, marcadores en vivo y la mejor comunidad.',live_chat:'Chat en Vivo',results_title:'Finales 2025-26 - Ultimos Resultados',elim_label:'ELIMINATORIAS',semi_label:'SEMIFINALES',leg2_label:'SEMIFINALES - Vuelta 2 este fin de semana!',result1:'Auckland gana en penales (AET) - Go Media Stadium',result2:"Wood 80' - AAMI Park",result3:"Brook 24' | Crawford 63' - Go Media Stadium",result4:"Stamatelopoulos 50' | E.Adams 58' - Allianz Stadium",gf_label:'Final: 22-23 Mayo 2026',ladder_title:'Tabla 2025-26',th_team:'Equipo',th_pts:'Pts',top6:'Top 6 en Finales',online_title:'En Linea Ahora',visitors_online:'visitantes en linea',firebase_label:'Conteo en vivo por Firebase.',fixtures_desc:'Temporada 2025-26 - resultados y proximos partidos.',finals_title:'Serie de Finales 2025-26',th_date:'Fecha',th_round:'Ronda',th_home:'Local',th_score:'Marcador',th_away:'Visitante',th_venue:'Estadio',th_status:'Estado',elim_short:'Elim',semi_short:'Semi',gf_short:'Gran Final',top_scorers:'Goleadores',top_assists:'Asistentes',teams_desc:'Explora todos los clubes. Haz clic en <strong style="color:var(--s)">Ver Plantilla</strong>.',view_squad:'Ver Plantilla',all_clubs:'A-League Masculino - Los 12 Clubes',chat_title:'Sala de Chat',chat_desc:'Habla de futbol en vivo con aficionados de toda Australia!',general_chat:'Chat General',online_label:'en linea',enter_name:'Ingresa tu nombre...',join_btn:'UNIRSE',chatting_as:'Chateando como',change_name:'[cambiar nombre]',enter_name_prompt:'Ingresa tu nombre arriba...',type_msg:'Escribe un mensaje...',send_btn:'ENVIAR',clear_btn:'BORRAR',chat_warning:'Chat moderado. Sin spam ni insultos.',whos_online:'Quien esta en linea',chat_rules_title:'Reglas del Chat',rules_body:'1. Respeta a todos<br>2. Sin insultos ni racismo<br>3. Solo temas de futbol<br>4. Sin spam<br>5. No compartas datos personales<br>6. Los mods tienen la ultima palabra',ban_warning:'Los infractores seran baneados permanentemente.',footer_rights:'Todos los derechos reservados',footer_terms:'Terminos de Uso',footer_contact:'Contactanos',footer_disclaimer:'Comunidad no oficial. No afiliada con Football Australia.',squad_stats:'Estadisticas',squad_form:'Forma Reciente',squad_coach:'Entrenador',squad_venue:'Estadio',squad_players:'Jugadores Clave',view_squad_btn:'Ver Plantilla',pts_lbl:'Puntos',wdl_lbl:'G-E-P',gf_lbl:'Goles',gd_lbl:'Diferencia'},
+pt:{tagline:'A Principal Comunidade de Futebol da Australia - Finais 2025-26 em Andamento!',nav_home:'Inicio',nav_fixtures:'Jogos',nav_teams:'Equipes',nav_chat:'Chat',home_title:'Bem-vindo ao <span>Ultimate Football AU</span>',home_desc:'Sua casa para noticias do futebol australiano, placares ao vivo e a melhor comunidade.',live_chat:'Chat ao Vivo',results_title:'Finais 2025-26 - Ultimos Resultados',elim_label:'ELIMINATORIAS',semi_label:'SEMIFINAIS',leg2_label:'SEMIFINAIS - Jogo 2 neste fim de semana!',result1:'Auckland vence nos penaltis - Go Media Stadium',result2:"Wood 80' - AAMI Park",result3:"Brook 24' | Crawford 63' - Go Media Stadium",result4:"Stamatelopoulos 50' | E.Adams 58' - Allianz Stadium",gf_label:'Final: 22-23 Maio 2026',ladder_title:'Classificacao 2025-26',th_team:'Equipe',th_pts:'Pts',top6:'Top 6 nas Finais',online_title:'Online Agora',visitors_online:'visitantes online',firebase_label:'Contagem ao vivo pelo Firebase.',fixtures_desc:'Temporada 2025-26 - resultados e proximos jogos.',finals_title:'Serie de Finais 2025-26',th_date:'Data',th_round:'Rodada',th_home:'Casa',th_score:'Placar',th_away:'Fora',th_venue:'Estadio',th_status:'Status',elim_short:'Elim',semi_short:'Semi',gf_short:'Grande Final',top_scorers:'Artilheiros',top_assists:'Assistencias',teams_desc:'Explore todos os clubes. Clique em <strong style="color:var(--s)">Ver Elenco</strong>.',view_squad:'Ver Elenco',all_clubs:'A-League Masculino - Todos os 12 Clubes',chat_title:'Sala de Chat dos Fas',chat_desc:'Converse ao vivo com torcedores de toda a Australia!',general_chat:'Chat Geral',online_label:'online',enter_name:'Digite seu nome...',join_btn:'ENTRAR',chatting_as:'Conversando como',change_name:'[mudar nome]',enter_name_prompt:'Digite seu nome acima...',type_msg:'Digite uma mensagem...',send_btn:'ENVIAR',clear_btn:'LIMPAR',chat_warning:'Chat moderado. Sem spam ou ofensas.',whos_online:'Quem esta Online',chat_rules_title:'Regras do Chat',rules_body:'1. Respeite todos<br>2. Sem ofensas ou racismo<br>3. Apenas futebol<br>4. Sem spam<br>5. Nao compartilhe dados pessoais<br>6. Mods tem a palavra final',ban_warning:'Infratores serao banidos permanentemente.',footer_rights:'Todos os direitos reservados',footer_terms:'Termos de Uso',footer_contact:'Contate-nos',footer_disclaimer:'Comunidade nao oficial. Nao afiliada a Football Australia.',squad_stats:'Estatisticas',squad_form:'Forma Recente',squad_coach:'Tecnico',squad_venue:'Estadio',squad_players:'Jogadores Chave',view_squad_btn:'Ver Elenco',pts_lbl:'Pontos',wdl_lbl:'V-E-D',gf_lbl:'Gols',gd_lbl:'Saldo'},
+de:{tagline:'Australiens fuhrende Fussball-Community - Finalrunde 2025-26 lauft!',nav_home:'Startseite',nav_fixtures:'Spielplan',nav_teams:'Teams',nav_chat:'Chat',home_title:'Willkommen bei <span>Ultimate Football AU</span>',home_desc:'Deine Heimat fur australische Fussballnachrichten, Live-Ergebnisse und die beste Community.',live_chat:'Live-Chat',results_title:'Finalrunde 2025-26 - Aktuelle Ergebnisse',elim_label:'ABSTIEGSRUNDE',semi_label:'HALBFINALE',leg2_label:'HALBFINALE - Ruckspiel dieses Wochenende!',result1:'Auckland gewinnt im Elfmeterschiessen - Go Media Stadium',result2:"Wood 80' - AAMI Park",result3:"Brook 24' | Crawford 63' - Go Media Stadium",result4:"Stamatelopoulos 50' | E.Adams 58' - Allianz Stadium",gf_label:'Finale: 22.-23. Mai 2026',ladder_title:'Tabelle 2025-26',th_team:'Team',th_pts:'Pkt',top6:'Top 6 im Finale',online_title:'Jetzt Online',visitors_online:'Besucher online',firebase_label:'Live-Zahlung durch Firebase.',fixtures_desc:'Saison 2025-26 - Ergebnisse und kommende Spiele.',finals_title:'Finale-Serie 2025-26',th_date:'Datum',th_round:'Runde',th_home:'Heim',th_score:'Ergebnis',th_away:'Gast',th_venue:'Stadion',th_status:'Status',elim_short:'Elim',semi_short:'Halbf.',gf_short:'Finale',top_scorers:'Torschutzen',top_assists:'Vorlagen',teams_desc:'Alle Klubs durchsuchen. Klicke auf <strong style="color:var(--s)">Kader anzeigen</strong>.',view_squad:'Kader anzeigen',all_clubs:'A-League Herren - Alle 12 Klubs',chat_title:'Fan-Chatroom',chat_desc:'Sprich live mit Fans aus ganz Australien uber Fussball!',general_chat:'Allgemeiner Chat',online_label:'online',enter_name:'Zeigename eingeben...',join_btn:'BEITRETEN',chatting_as:'Chattest als',change_name:'[Namen andern]',enter_name_prompt:'Namen oben eingeben...',type_msg:'Nachricht eingeben...',send_btn:'SENDEN',clear_btn:'LOSCHEN',chat_warning:'Chat moderiert. Kein Spam oder Beleidigungen.',whos_online:'Wer ist Online',chat_rules_title:'Chat-Regeln',rules_body:'1. Respektiere alle<br>2. Kein Missbrauch oder Rassismus<br>3. Nur Fussballthemen<br>4. Kein Spam<br>5. Keine personlichen Daten<br>6. Mods entscheiden',ban_warning:'Regelverletzer werden dauerhaft gesperrt.',footer_rights:'Alle Rechte vorbehalten',footer_terms:'Nutzungsbedingungen',footer_contact:'Kontakt',footer_disclaimer:'Inoffizielle Community. Nicht mit Football Australia verbunden.',squad_stats:'Saisonstatistik',squad_form:'Aktuelle Form',squad_coach:'Trainer',squad_venue:'Stadion',squad_players:'Schlussspieler',view_squad_btn:'Kader anzeigen',pts_lbl:'Punkte',wdl_lbl:'S-U-N',gf_lbl:'Tore',gd_lbl:'Tordiff.'},
+it:{tagline:"La Principale Community Calcistica d'Australia - Finali 2025-26 in Corso!",nav_home:'Home',nav_fixtures:'Partite',nav_teams:'Squadre',nav_chat:'Chat',home_title:'Benvenuto su <span>Ultimate Football AU</span>',home_desc:"La tua casa per notizie sul calcio australiano, risultati in diretta e la migliore community.",live_chat:'Chat dal Vivo',results_title:'Finali 2025-26 - Ultimi Risultati',elim_label:'ELIMINATORI',semi_label:'SEMIFINALI',leg2_label:'SEMIFINALI - Ritorno questo fine settimana!',result1:'Auckland vince ai rigori - Go Media Stadium',result2:"Wood 80' - AAMI Park",result3:"Brook 24' | Crawford 63' - Go Media Stadium",result4:"Stamatelopoulos 50' | E.Adams 58' - Allianz Stadium",gf_label:'Finale: 22-23 Maggio 2026',ladder_title:'Classifica 2025-26',th_team:'Squadra',th_pts:'Pts',top6:'Top 6 alle Finali',online_title:'Online Ora',visitors_online:'visitatori online',firebase_label:'Conteggio live da Firebase.',fixtures_desc:'Stagione 2025-26 - risultati e prossime partite.',finals_title:'Serie Finale 2025-26',th_date:'Data',th_round:'Turno',th_home:'Casa',th_score:'Risultato',th_away:'Ospite',th_venue:'Stadio',th_status:'Stato',elim_short:'Elim',semi_short:'Semi',gf_short:'Finale',top_scorers:'Capocannonieri',top_assists:'Assist',teams_desc:'Sfoglia tutti i club. Clicca su <strong style="color:var(--s)">Vedi Rosa</strong>.',view_squad:'Vedi Rosa',all_clubs:'A-League Maschile - Tutti i 12 Club',chat_title:'Chat dei Tifosi',chat_desc:'Parla di calcio in diretta con i tifosi di tutta Australia!',general_chat:'Chat Generale',online_label:'online',enter_name:'Inserisci il tuo nome...',join_btn:'ENTRA',chatting_as:'Stai chattando come',change_name:'[cambia nome]',enter_name_prompt:'Inserisci il nome sopra...',type_msg:'Scrivi un messaggio...',send_btn:'INVIA',clear_btn:'CANCELLA',chat_warning:'Chat moderata. Niente spam o insulti.',whos_online:'Chi e Online',chat_rules_title:'Regole della Chat',rules_body:"1. Rispetta tutti<br>2. Niente insulti o razzismo<br>3. Solo calcio<br>4. Niente spam<br>5. No dati personali<br>6. I mod decidono",ban_warning:'I trasgressori saranno bannati permanentemente.',footer_rights:'Tutti i diritti riservati',footer_terms:'Termini di Utilizzo',footer_contact:'Contattaci',footer_disclaimer:'Community non ufficiale. Non affiliata con Football Australia.',squad_stats:'Statistiche',squad_form:'Forma Recente',squad_coach:'Allenatore',squad_venue:'Stadio',squad_players:'Giocatori Chiave',view_squad_btn:'Vedi Rosa',pts_lbl:'Punti',wdl_lbl:'V-P-S',gf_lbl:'Gol',gd_lbl:'Diff. Reti'},
+ja:{tagline:'オーストラリア最高のフットボールコミュニティ - 2025-26ファイナル開幕中',nav_home:'ホーム',nav_fixtures:'日程',nav_teams:'チーム',nav_chat:'チャット',home_title:'<span>Ultimate Football AU</span>へようこそ',home_desc:'オーストラリアのフットボールニュース、ライブスコア、フォーラムのホームです。',live_chat:'ライブチャット',results_title:'2025-26ファイナル - 最新結果',elim_label:'エリミネーションファイナル',semi_label:'準決勝',leg2_label:'準決勝 - 第2戦 今週末！',result1:'オークランドがPK戦で勝利',result2:"ウッド80'",result3:"ブルック24' | クロフォード63'",result4:"スタマテロプロス50' | E.アダムス58'",gf_label:'グランドファイナル: 2026年5月22-23日',ladder_title:'2025-26 順位表',th_team:'チーム',th_pts:'勝点',top6:'ファイナル上位6位',online_title:'オンライン中',visitors_online:'人が閲覧中',firebase_label:'Firebaseによるライブカウント。',fixtures_desc:'2025-26シーズン - 結果と今後の試合。',finals_title:'2025-26ファイナルシリーズ',th_date:'日付',th_round:'ラウンド',th_home:'ホーム',th_score:'スコア',th_away:'アウェイ',th_venue:'会場',th_status:'状態',elim_short:'エリム',semi_short:'準決勝',gf_short:'グランドファイナル',top_scorers:'得点ランキング',top_assists:'アシストランキング',teams_desc:'全クラブを閲覧。<strong style="color:var(--s)">スカッドを見る</strong>をクリック。',view_squad:'スカッドを見る',all_clubs:'Aリーグメン - 全12クラブ',chat_title:'ファンチャットルーム',chat_desc:'オーストラリア中のファンとリアルタイムで話しましょう！',general_chat:'一般チャット',online_label:'オンライン',enter_name:'表示名を入力してチャットに参加...',join_btn:'参加する',chatting_as:'チャット中:',change_name:'[名前変更]',enter_name_prompt:'上に名前を入力...',type_msg:'メッセージを入力...',send_btn:'送信',clear_btn:'クリア',chat_warning:'チャットはモデレートされています。',whos_online:'オンライン中',chat_rules_title:'チャットルール',rules_body:'1. 全員を尊重する<br>2. 暴言・差別禁止<br>3. フットボール関連のみ<br>4. スパム禁止<br>5. 個人情報禁止<br>6. モデレーターの判断が最終',ban_warning:'違反者は永久追放されます。',footer_rights:'全著作権所有',footer_terms:'利用規約',footer_contact:'お問い合わせ',footer_disclaimer:'非公式ファンコミュニティ。Football Australiaとは無関係。',squad_stats:'シーズン成績',squad_form:'最近のフォーム',squad_coach:'ヘッドコーチ',squad_venue:'スタジアム',squad_players:'主要選手',view_squad_btn:'スカッドを見る',pts_lbl:'勝点',wdl_lbl:'勝-分-負',gf_lbl:'得点',gd_lbl:'得失点差'},
+zh:{tagline:'澳大利亚顶级足球社区 - 2025-26季后赛进行中',nav_home:'首页',nav_fixtures:'赛程',nav_teams:'球队',nav_chat:'聊天',home_title:'欢迎来到 <span>Ultimate Football AU</span>',home_desc:'您的澳大利亚足球新闻、实时比分和最佳足球社区之家。',live_chat:'在线聊天',results_title:'2025-26季后赛 - 最新结果',elim_label:'淘汰赛',semi_label:'半决赛',leg2_label:'半决赛 - 第二回合本周末！',result1:'奥克兰点球大战获胜',result2:"伍德80'",result3:"布鲁克24' | 克劳福德63'",result4:"斯塔马特罗普洛斯50' | E.亚当斯58'",gf_label:'总决赛: 2026年5月22-23日',ladder_title:'2025-26积分榜',th_team:'球队',th_pts:'积分',top6:'季后赛前6名',online_title:'在线人数',visitors_online:'位访客在线',firebase_label:'由Firebase提供实时统计。',fixtures_desc:'2025-26赛季 - 结果和即将到来的比赛。',finals_title:'2025-26季后赛系列',th_date:'日期',th_round:'轮次',th_home:'主场',th_score:'比分',th_away:'客场',th_venue:'场馆',th_status:'状态',elim_short:'淘汰',semi_short:'半决赛',gf_short:'总决赛',top_scorers:'射手榜',top_assists:'助攻榜',teams_desc:'浏览所有俱乐部。点击<strong style="color:var(--s)">查看阵容</strong>。',view_squad:'查看阵容',all_clubs:'A联赛男子组 - 全部12支球队',chat_title:'球迷聊天室',chat_desc:'与澳大利亚各地的球迷实时交流！',general_chat:'综合聊天',online_label:'在线',enter_name:'输入显示名称加入聊天...',join_btn:'加入聊天',chatting_as:'正在聊天:',change_name:'[修改名称]',enter_name_prompt:'在上方输入名称...',type_msg:'输入消息...',send_btn:'发送',clear_btn:'清除',chat_warning:'聊天受到监控。',whos_online:'在线用户',chat_rules_title:'聊天规则',rules_body:'1. 尊重所有用户<br>2. 禁止辱骂或种族歧视<br>3. 只讨论足球相关话题<br>4. 禁止垃圾信息<br>5. 禁止分享个人信息<br>6. 管理员拥有最终决定权',ban_warning:'违规者将被永久封禁。',footer_rights:'版权所有',footer_terms:'使用条款',footer_contact:'联系我们',footer_disclaimer:'非官方球迷社区，与Football Australia无关。',squad_stats:'赛季数据',squad_form:'近期状态',squad_coach:'主教练',squad_venue:'球场',squad_players:'主要球员',view_squad_btn:'查看阵容',pts_lbl:'积分',wdl_lbl:'胜-平-负',gf_lbl:'进球',gd_lbl:'净胜球'}};
+
+var curLang='en';
+function t(k){return(LANG[curLang]&&LANG[curLang][k])||LANG.en[k]||k;}
+function setLang(lang){
+  curLang=lang;var L=LANG[lang];
+  document.querySelectorAll('[data-t]').forEach(function(el){var k=el.getAttribute('data-t');if(L[k]!==undefined)el.innerHTML=L[k];});
+  document.querySelectorAll('[data-t-placeholder]').forEach(function(el){var k=el.getAttribute('data-t-placeholder');if(L[k]!==undefined)el.placeholder=L[k];});
+  buildGrid();
+}
+
+var IDS=['s0','s1','s2','s3','s4','s5'];
+function show(i,el){
+  IDS.forEach(function(id,j){document.getElementById(id).style.display=j===i?'':'none';});
+  document.querySelectorAll('nav ul li a').forEach(function(a){a.classList.remove('active');});
+  if(el)el.classList.add('active');
+  // Refresh all online count elements whenever any tab opens
+  if(window._onlineCount!==undefined){
+    ['onlineCount','onlineCount2','onlineCount3','chatOnlineCount'].forEach(function(id){
+      var el=document.getElementById(id);if(el)el.textContent=window._onlineCount;
+    });
+  }
+}
+
+var T=[
+  {n:'Adelaide United',b:'images/image_02.png',f:2003,s:'Coopers Stadium',c:'Adelaide, SA',pts:35,w:11,d:2,l:6,gf:33,ga:28,fm:['W','W','W','W','D'],co:'Airton Andrioli',sq:[{n:1,nm:'James Delianov',p:'GK'},{n:4,nm:'Ryan Strain',p:'DEF'},{n:9,nm:'Harry Crawford',p:'FWD'},{n:10,nm:'Craig Goodwin',p:'MID'},{n:11,nm:'Nestory Irankunda',p:'FWD'}]},
+  {n:'Auckland FC',b:'images/image_03.png',f:2024,s:'Go Media Stadium',c:'Auckland, NZ',pts:32,w:10,d:2,l:7,gf:32,ga:18,fm:['W','D','W','W','D'],co:'Steve Corica',sq:[{n:1,nm:'Michael Woud',p:'GK'},{n:9,nm:'Sam Cosgrove',p:'FWD'},{n:10,nm:'Jesse Randall',p:'MID'},{n:11,nm:'Lachlan Brook',p:'FWD'}]},
+  {n:'Brisbane Roar',b:'images/image_08.png',f:2005,s:'Suncorp Stadium',c:'Brisbane, QLD',pts:23,w:6,d:5,l:9,gf:19,ga:25,fm:['L','W','W','L','D'],co:'Michael Valkanis',sq:[{n:1,nm:'Jamie Young',p:'GK'},{n:9,nm:'Youstin Salas',p:'FWD'}]},
+  {n:'Central Coast Mariners',b:'images/image_07.png',f:2004,s:'Polytec Stadium',c:'Gosford, NSW',pts:23,w:6,d:5,l:7,gf:24,ga:26,fm:['D','W','L','D','W'],co:'Warren Moon',sq:[{n:1,nm:'Mark Birighitti',p:'GK'},{n:4,nm:'Trent Sainsbury',p:'DEF'},{n:11,nm:'Trent Buhagiar',p:'FWD'}]},
+  {n:'Macarthur FC',b:'images/image_09.png',f:2019,s:'Campbelltown Sports Stadium',c:'Campbelltown, NSW',pts:25,w:6,d:7,l:6,gf:24,ga:28,fm:['D','W','D','D','L'],co:'Mile Sterjovski',sq:[{n:1,nm:'Filip Kurto',p:'GK'},{n:6,nm:'Luke Brattan',p:'MID'},{n:9,nm:'Ji Dong-won',p:'FWD'}]},
+  {n:'Melbourne City',b:'images/image_06.png',f:2009,s:'AAMI Park',c:'Melbourne, VIC',pts:22,w:5,d:7,l:7,gf:20,ga:27,fm:['L','D','L','D','L'],co:'Aurelio Vidmar',sq:[{n:1,nm:'Tom Glover',p:'GK'},{n:5,nm:'Aiden ONeill',p:'MID'},{n:17,nm:'Mathew Leckie',p:'FWD'}]},
+  {n:'Melbourne Victory',b:'images/image_05.png',f:2004,s:'AAMI Park',c:'Melbourne, VIC',pts:28,w:8,d:4,l:7,gf:28,ga:24,fm:['L','L','W','W','D'],co:'Arthur Diles',sq:[{n:1,nm:'Paul Izzo',p:'GK'},{n:10,nm:'Juan Mata',p:'MID'},{n:11,nm:'Ben Folami',p:'FWD'}]},
+  {n:'Newcastle Jets',b:'images/image_01.png',f:2000,s:'McDonald Jones Stadium',c:'Newcastle, NSW',pts:37,w:12,d:1,l:6,gf:41,ga:29,fm:['W','W','W','D','W'],co:'Mark Milligan',sq:[{n:1,nm:'Jack Duncan',p:'GK'},{n:5,nm:'Joe Shaughnessy',p:'DEF'},{n:8,nm:'Daniel Wilmering',p:'MID'},{n:10,nm:'Clayton Taylor',p:'MID'},{n:11,nm:'Lachlan Rose',p:'FWD'},{n:9,nm:'Zach Clough',p:'FWD'}]},
+  {n:'Perth Glory',b:'images/image_10.png',f:1996,s:'HBF Park',c:'Perth, WA',pts:21,w:6,d:3,l:10,gf:22,ga:30,fm:['L','L','D','W','L'],co:'Scott Wootton',sq:[{n:1,nm:'Liam Reddy',p:'GK'},{n:6,nm:'Adam Taggart',p:'FWD'}]},
+  {n:'Sydney FC',b:'images/image_04.png',f:2004,s:'Allianz Stadium',c:'Sydney, NSW',pts:30,w:9,d:3,l:7,gf:25,ga:18,fm:['W','D','W','W','W'],co:'Patrick Kisnorbo',sq:[{n:1,nm:'Harrison Devenish-Meares',p:'GK'},{n:7,nm:'Piero Quispe',p:'MID'},{n:13,nm:'Patrick Wood',p:'FWD'},{n:16,nm:'Joel King',p:'DEF'}]},
+  {n:'Wellington Phoenix',b:'images/image_12.png',f:2007,s:'Sky Stadium',c:'Wellington, NZ',pts:20,w:5,d:5,l:8,gf:28,ga:38,fm:['D','L','W','D','L'],co:'Chris Greenacre',sq:[{n:1,nm:'Oli Sail',p:'GK'},{n:11,nm:'Ifeanyi Eze',p:'FWD'},{n:14,nm:'Manjrekar James',p:'MID'}]},
+  {n:'Western Sydney Wanderers',b:'images/image_11.png',f:2012,s:'CommBank Stadium',c:'Parramatta, NSW',pts:20,w:5,d:5,l:9,gf:21,ga:26,fm:['L','D','L','L','W'],co:'Gary van Egmond',sq:[{n:1,nm:'Lawrence Thomas',p:'GK'},{n:10,nm:'Keanu Baccus',p:'MID'}]},
+  {n:'Wellington Phoenix',b:'images/image_12.png',f:2007,s:'Sky Stadium',c:'Wellington, NZ',pts:20,w:5,d:5,l:8,gf:28,ga:38,fm:['D','L','W','D','L'],co:'Chris Greenacre',sq:[{n:1,nm:'Oli Sail',p:'GK'},{n:11,nm:'Ifeanyi Eze',p:'FWD'},{n:14,nm:'Manjrekar James',p:'MID'}]}
+];
+
+function buildGrid(){
+  var g=document.getElementById('tgrid');if(!g)return;
+  g.innerHTML=T.map(function(tm,i){
+    return '<div class="tc"><div class="bg"><img src="'+tm.b+'" alt="'+tm.n+'"></div><h3>'+tm.n+'</h3><p>Est. '+tm.f+'</p><p>'+tm.s+'</p>'
+      +'<button class="sb" onclick="openDr('+i+')">'+t('view_squad_btn')+' &rarr;</button></div>';
+  }).join('');
+}
+buildGrid();
+
+function openDr(i){
+  var tm=T[i];
+  document.getElementById('drImg').src=tm.b;
+  document.getElementById('drImg').alt=tm.n;
+  document.getElementById('drName').textContent=tm.n;
+  document.getElementById('drSub').textContent=tm.c+' - Est. '+tm.f;
+  var gd=tm.gf-tm.ga;
+  var fh=tm.fm.map(function(r){return '<div class="fd '+(r==='W'?'w':r==='D'?'d':'l')+'">'+r+'</div>';}).join('');
+  var sq=tm.sq.map(function(p){return '<div class="pr"><div class="pn">#'+p.n+'</div><div class="pi"><div class="pna">'+p.nm+'</div><div class="pp">'+p.p+'</div></div></div>';}).join('');
+  document.getElementById('drBody').innerHTML=
+    '<div class="ds"><div class="dt">'+t('squad_stats')+'</div><div class="sg">'
+    +'<div class="tile"><div class="v">'+tm.pts+'</div><div class="l">'+t('pts_lbl')+'</div></div>'
+    +'<div class="tile"><div class="v">'+tm.w+'-'+tm.d+'-'+tm.l+'</div><div class="l">'+t('wdl_lbl')+'</div></div>'
+    +'<div class="tile"><div class="v">'+tm.gf+'</div><div class="l">'+t('gf_lbl')+'</div></div>'
+    +'<div class="tile"><div class="v">'+(gd>0?'+':'')+gd+'</div><div class="l">'+t('gd_lbl')+'</div></div>'
+    +'</div></div>'
+    +'<div class="ds"><div class="dt">'+t('squad_form')+'</div><div class="fds">'+fh+'</div></div>'
+    +'<div class="ds"><div class="dt">'+t('squad_coach')+'</div><div style="font-size:13px;color:#fff;padding:6px 0">'+tm.co+'</div></div>'
+    +'<div class="ds"><div class="dt">'+t('squad_venue')+'</div><div style="font-size:13px;color:#fff;padding:6px 0">'+tm.s+'</div></div>'
+    +'<div class="ds"><div class="dt">'+t('squad_players')+'</div>'+sq+'</div>';
+  document.getElementById('dr').classList.add('open');
+  document.getElementById('ov').classList.add('open');
+}
+function closeDr(){document.getElementById('dr').classList.remove('open');document.getElementById('ov').classList.remove('open');}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDr();});
+
+// FIREBASE
+var _fbDB=null;
+// getDB removed - using _db directly
+
+// Online presence - runs after Firebase init
+function initPresence(){
+  if(typeof _db === 'undefined') return;
+  _db.ref('.info/connected').on('value',function(snap){
+    if(snap.val()===true){
+      var me=_db.ref('onlineCount').push(true);
+      me.onDisconnect().remove();
+    }
+  });
+  _db.ref('onlineCount').on('value',function(snap){
+    var c=snap.numChildren?snap.numChildren():0;
+    window._onlineCount=c;
+    ['onlineCount','onlineCount2','onlineCount3','chatOnlineCount'].forEach(function(id){
+      var el=document.getElementById(id);if(el)el.textContent=c;
+    });
+  });
+}
+
+// Chat
+var _name='',_listening=false,_chatUnsub=null;
+
+function updateChatUI(){
+  var locked=document.getElementById('chatLocked');
+  var loggedIn=document.getElementById('chatLoggedIn');
+  var cb=document.getElementById('clearChatBtn');
+  if(_user){
+    var name=_profile.displayName||_user.email.split('@')[0];
+    _name=name;
+    var dn=document.getElementById('chat-display-name');if(dn)dn.textContent=name;
+    if(locked)locked.style.display='none';
+    if(loggedIn)loggedIn.style.display='block';
+    var role=_profile.role||'member';
+    if(cb)cb.style.display=(role==='admin'||role==='mod')?'inline-block':'none';
+    startChat();
+  } else {
+    _name='';
+    if(locked)locked.style.display='block';
+    if(loggedIn)loggedIn.style.display='none';
+    if(cb)cb.style.display='none';
+    if(_chatUnsub){try{_db.ref('messages').off('child_added',_chatUnsub);}catch(e){}_chatUnsub=null;}
+    _listening=false;
+  }
+}
+
+function startChat(){
+  if(_listening)return;_listening=true;
+  var box=document.getElementById('chatBox');if(box)box.innerHTML='';
+  var q=_db.ref('messages').orderByChild('ts').limitToLast(80);
+  _chatUnsub=q.on('child_added',function(snap){
+    var data=snap.val();if(!data)return;
+    var box=document.getElementById('chatBox');if(!box)return;
+    var ph=box.querySelector('[data-placeholder]');if(ph)box.innerHTML='';
+    var div=document.createElement('div');div.className='cm';
+    var ts=data.ts?new Date(data.ts).toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit'}):'';
+    div.innerHTML='<span class="u">'+String(data.user||'').replace(/</g,'&lt;')+':</span> <span class="t">'+String(data.text||'').replace(/</g,'&lt;')+'</span>'+(ts?'<span style="color:#5a6e8a;font-size:10px;margin-left:8px">'+ts+'</span>':'');
+    box.appendChild(div);box.scrollTop=box.scrollHeight;
+  });
+}
+
+function sendChat(){
+  if(!_name||!_user)return;
+  var inp=document.getElementById('chatInput');
+  var msg=(inp?inp.value:'').trim();if(!msg)return;inp.value='';
+  _db.ref('messages').push({user:_name,text:msg,ts:firebase.database.ServerValue.TIMESTAMP});
+}
+
+function clearChat(){
+  if(!confirm('Clear all chat messages? This cannot be undone.'))return;
+  if(_chatUnsub){try{_db.ref('messages').off('child_added',_chatUnsub);}catch(e){}_chatUnsub=null;}
+  _listening=false;
+  _db.ref('messages').remove().then(function(){
+    var box=document.getElementById('chatBox');if(box)box.innerHTML='';
+    startChat();
+  });
+}
+// ── AUTH STATE ─────────────────────────────────────────────
+var _user=null,_profile={};
+auth.onAuthStateChanged(function(user){
+  _user=user;
+  if(user){
+    _db.ref('users/'+user.uid).once('value').then(function(snap){
+      _profile=snap.val()||{};
+      renderLoggedIn();
+      });
+  } else {
+    _profile={};
+    renderLoggedOut();
+  }
+  loadMemberCount();
+});
+
+function renderLoggedIn(){
+  updateChatUI();
+  // Enable editing for admins
+  setTimeout(function(){
+    if(_profile.role==='admin'){enableAdminEditing();}
+    else{disableAdminEditing();}
+    loadSiteContent();
+  },300);
+  document.getElementById('authBarGuest').style.display='none';
+  document.getElementById('authBarUser').style.display='flex';
+  var name=_profile.displayName||_user.email.split('@')[0];
+  document.getElementById('topBarUsername').textContent=name;
+  document.getElementById('guestForms').style.display='none';
+  document.getElementById('userProfile').style.display='block';
+  document.getElementById('profileName').textContent=name;
+  document.getElementById('profileEmail').textContent=_user.email;
+  document.getElementById('profileAvatar').textContent=name.charAt(0).toUpperCase();
+  document.getElementById('editName').value=name;
+  document.getElementById('editTeam').value=_profile.favTeam||'';
+  document.getElementById('profileTeam').textContent=_profile.favTeam?'Favourite team: '+_profile.favTeam:'No favourite team set.';
+  var role=_profile.role||'member';
+  var badge=document.getElementById('profileBadge');
+  badge.textContent=role.charAt(0).toUpperCase()+role.slice(1);
+  badge.className='profile-badge badge-'+role;
+  // show CLEAR btn for admins/mods
+  var cb=document.getElementById('clearChatBtn');
+  if(cb) cb.style.display=(role==='admin'||role==='mod')?'inline-block':'none';
+}
+
+function renderLoggedOut(){
+  updateChatUI();
+  disableAdminEditing();
+  loadSiteContent();
+  document.getElementById('authBarGuest').style.display='flex';
+  document.getElementById('authBarUser').style.display='none';
+  var gf=document.getElementById('guestForms');
+  var up=document.getElementById('userProfile');
+  if(gf) gf.style.display='block';
+  if(up) up.style.display='none';
+  var cb=document.getElementById('clearChatBtn');
+  if(cb) cb.style.display='none';
+}
+
+// prefillChat removed - chat now uses account name directly
+
+function loadMemberCount(){
+  // Use public stats node readable by anyone
+  _db.ref('stats/memberCount').on('value', function(snap){
+    var count = snap.val() || 0;
+    ['memberCount','adminMemberCount'].forEach(function(id){
+      var el=document.getElementById(id);
+      if(el) el.textContent=count;
+    });
+  });
+}
+
+function switchAuthTab(tab){
+  document.getElementById('tabLogin').classList.toggle('active',tab==='login');
+  document.getElementById('tabRegister').classList.toggle('active',tab==='register');
+  document.getElementById('formLogin').style.display=tab==='login'?'block':'none';
+  document.getElementById('formRegister').style.display=tab==='register'?'block':'none';
+}
+
+function showMsg(id,msg){
+  var el=document.getElementById(id);if(!el)return;
+  el.textContent=msg;el.style.display='block';
+  setTimeout(function(){el.style.display='none';},5000);
+}
+
+function friendlyError(code){
+  var m={
+    'auth/invalid-email':'Invalid email address.',
+    'auth/user-not-found':'No account found with that email.',
+    'auth/wrong-password':'Incorrect password.',
+    'auth/invalid-credential':'Incorrect email or password.',
+    'auth/email-already-in-use':'An account already exists with that email.',
+    'auth/weak-password':'Password must be at least 6 characters.',
+    'auth/too-many-requests':'Too many attempts. Please try again later.',
+    'auth/requires-recent-login':'Please sign out and back in before changing your password.'
+  };
+  return m[code]||'Something went wrong. Please try again.';
+}
+
+function doLogin(){
+  var input=document.getElementById('loginEmail').value.trim();
+  var p=document.getElementById('loginPass').value;
+  if(!input||!p){showMsg('loginError','Please fill in all fields.');return;}
+
+  // If input contains @ treat as email, otherwise look up by username
+  if(input.indexOf('@')!==-1){
+    doLoginWithEmail(input,p);
+  } else {
+    showMsg('loginError','Looking up username...');
+    // Search users for matching displayName
+    _db.ref('users').orderByChild('displayName').equalTo(input).once('value')
+      .then(function(snap){
+        if(!snap.exists()){
+          showMsg('loginError','No account found with that username.');
+          return;
+        }
+        var email=null;
+        snap.forEach(function(child){
+          var data=child.val();
+          if(data.email) email=data.email;
+        });
+        if(!email){
+          showMsg('loginError','Username found but email missing. Please log in with your email.');
+          return;
+        }
+        doLoginWithEmail(email,p);
+      })
+      .catch(function(){showMsg('loginError','Could not look up username. Try your email instead.');});
+  }
+}
+
+function doLoginWithEmail(email,pass){
+  auth.signInWithEmailAndPassword(email,pass)
+    .then(function(){show(0,document.getElementById('n0'));})
+    .catch(function(err){showMsg('loginError',friendlyError(err.code));});
+}
+
+function doRegister(){
+  var name=document.getElementById('regName').value.trim();
+  var e=document.getElementById('regEmail').value.trim();
+  var p=document.getElementById('regPass').value;
+  var team=document.getElementById('regTeam').value;
+  if(!name||!e||!p){showMsg('regError','Please fill in all required fields.');return;}
+  if(p.length<6){showMsg('regError','Password must be at least 6 characters.');return;}
+  auth.createUserWithEmailAndPassword(e,p)
+    .then(function(cred){
+      var uid = cred.user.uid;
+      return _db.ref('users/'+uid).set({
+        displayName:name,
+        email:cred.user.email,
+        favTeam:team||'',
+        role:'member',
+        joinedAt:firebase.database.ServerValue.TIMESTAMP
+      }).then(function(){
+        // Increment public member count
+        return _db.ref('stats/memberCount').transaction(function(current){
+          return (current||0)+1;
+        });
+      });
+    })
+    .then(function(){
+      showMsg('regSuccess','Account created! Welcome to Ultimate Football AU!');
+      setTimeout(function(){show(0,document.getElementById('n0'));},1500);
+    })
+    .catch(function(err){showMsg('regError',friendlyError(err.code));});
+}
+
+function doLogout(){
+  auth.signOut().then(function(){
+    // Reset chat state
+    _name='';_listening=false;
+    if(_chatUnsub){
+      try{_db.ref('messages').off('child_added',_chatUnsub);}catch(e){}
+      _chatUnsub=null;
+    }
+    // chat reset handled by updateChatUI
+    var cb=document.getElementById('chatBox');if(cb)cb.innerHTML='<div style="text-align:center;color:#6b7fa0;font-size:12px;padding:20px 0" data-placeholder="1">Enter your name above to load messages...</div>';
+    show(0,document.getElementById('n0'));
+  });
+}
+
+function saveProfile(){
+  if(!_user)return;
+  var name=document.getElementById('editName').value.trim();
+  var team=document.getElementById('editTeam').value;
+  if(!name){showMsg('editError','Display name cannot be empty.');return;}
+  _db.ref('users/'+_user.uid).update({displayName:name,favTeam:team})
+    .then(function(){
+      _profile.displayName=name;_profile.favTeam=team;
+      document.getElementById('profileName').textContent=name;
+      document.getElementById('profileAvatar').textContent=name.charAt(0).toUpperCase();
+      document.getElementById('topBarUsername').textContent=name;
+      document.getElementById('profileTeam').textContent=team?'Favourite team: '+team:'No favourite team set.';
+      showMsg('editSuccess','Profile saved!');
+    })
+    .catch(function(err){showMsg('editError',err.message);});
+}
+
+function changePassword(){
+  var p=document.getElementById('newPass').value;
+  if(p.length<6){showMsg('passError','Password must be at least 6 characters.');return;}
+  _user.updatePassword(p)
+    .then(function(){showMsg('passSuccess','Password updated!');document.getElementById('newPass').value='';})
+    .catch(function(err){showMsg('passError',friendlyError(err.code));});
+}
+
+// Init presence tracking
+initPresence();
+// Load any saved site content edits
+loadSiteContent();
+// Load member count on page load (works for logged-out users too)
+loadMemberCount();
+
+// ── INLINE ADMIN EDITING ────────────────────────────────────
+var _editKey=null, _editEl=null, _editOriginal=null;
+
+function enableAdminEditing(){
+  document.body.classList.add('is-admin');
+  // Show edit bar
+  var bar=document.getElementById('adminEditBar');
+  if(bar)bar.style.display='flex';
+  // Load all saved edits from Firebase and apply them
+  _db.ref('siteContent').on('value',function(snap){
+    if(!snap.exists())return;
+    snap.forEach(function(child){
+      var key=child.key;
+      var val=child.val();
+      // Apply to all elements with this edit key
+      document.querySelectorAll('[data-edit-key="'+key+'"]').forEach(function(el){
+        el.innerHTML=val;
+      });
+    });
+  });
+}
+
+function disableAdminEditing(){
+  document.body.classList.remove('is-admin');
+  var bar=document.getElementById('adminEditBar');
+  if(bar)bar.style.display='none';
+}
+
+function openEdit(el){
+  if(!_user||_profile.role!=='admin')return;
+  _editEl=el;
+  _editKey=el.getAttribute('data-edit-key');
+  _editOriginal=el.innerHTML;
+  document.getElementById('editModalText').value=el.innerText||el.textContent;
+  document.getElementById('editModalOverlay').style.display='flex';
+  document.getElementById('editModalText').focus();
+}
+
+function closeEditModal(){
+  document.getElementById('editModalOverlay').style.display='none';
+  _editKey=null;_editEl=null;_editOriginal=null;
+}
+
+function saveEditContent(){
+  if(!_editKey||!_editEl)return;
+  var newText=document.getElementById('editModalText').value.trim();
+  if(!newText)return;
+  // Save to Firebase
+  _db.ref('siteContent/'+_editKey).set(newText).then(function(){
+    _editEl.textContent=newText;
+    closeEditModal();
+  }).catch(function(e){
+    alert('Save failed: '+e.message);
+  });
+}
+
+function resetEditContent(){
+  if(!_editKey)return;
+  if(!confirm('Reset this text back to the original default?'))return;
+  _db.ref('siteContent/'+_editKey).remove().then(function(){
+    closeEditModal();
+    location.reload();
+  });
+}
+
+// Close modal on Escape
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    if(document.getElementById('editModalOverlay').style.display!=='none') closeEditModal();
+    else closeDr();
+  }
+});
+
+// Load saved content for ALL visitors (not just admins)
+function loadSiteContent(){
+  _db.ref('siteContent').once('value').then(function(snap){
+    if(!snap.exists())return;
+    snap.forEach(function(child){
+      document.querySelectorAll('[data-edit-key="'+child.key+'"]').forEach(function(el){
+        el.innerHTML=child.val();
+      });
+    });
+  });
+}
+
+// ── ADMIN PANEL ────────────────────────────────────────────
+var _allUsers=[];
+
+function showAdminTab(){
+  var btn=document.getElementById('adminTopBtn');
+  if(btn) btn.style.display=(_profile.role==='admin')?'inline-block':'none';
+}
+
+function loadAdminUsers(){
+  if(!_user||_profile.role!=='admin')return;
+  // Remove any existing listener first
+  _db.ref('users').off('value');
+  // Set up real-time listener with error handling
+  _db.ref('users').on('value',
+    function(snap){
+      _allUsers=[];
+      var total=0,admins=0,mods=0,members=0;
+      snap.forEach(function(child){
+        var u=child.val()||{};
+        u._uid=child.key;
+        _allUsers.push(u);
+        total++;
+        if(u.role==='admin') admins++;
+        else if(u.role==='mod') mods++;
+        else members++;
+      });
+      var tu=document.getElementById('adminTotalUsers');if(tu)tu.textContent=total;
+      var ta=document.getElementById('adminTotalAdmins');if(ta)ta.textContent=admins+' admin / '+mods+' mod';
+      var tm=document.getElementById('adminTotalMembers');if(tm)tm.textContent=members;
+      _db.ref('stats/memberCount').set(total);
+      ['memberCount','adminMemberCount'].forEach(function(id){
+        var el=document.getElementById(id);if(el)el.textContent=total;
+      });
+      renderAdminTable(_allUsers);
+    },
+    function(err){
+      // Permission denied - show helpful message
+      var tbody=document.getElementById('adminUserTable');
+      if(tbody)tbody.innerHTML='<tr><td colspan="6" style="text-align:center;color:#f87171;padding:20px">&#128274; Permission denied. Check Firebase rules allow admin to read /users.</td></tr>';
+      var tu=document.getElementById('adminTotalUsers');if(tu)tu.textContent='ERR';
+      console.error('Admin users load failed:',err.code, err.message);
+    }
+  );
+}
+
+function renderAdminTable(users){
+  var tbody=document.getElementById('adminUserTable');if(!tbody)return;
+  if(!users.length){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;color:#6b7fa0;padding:20px">No users found.</td></tr>';return;}
+  var uc=document.getElementById('adminUserCount');if(uc)uc.textContent='Showing '+users.length+' user'+(users.length!==1?'s':'');
+  var rows='';
+  users.forEach(function(u){
+    var joined=u.joinedAt?new Date(u.joinedAt).toLocaleDateString('en-AU'):'--';
+    var roleColor=u.role==='admin'?'#fca5a5':u.role==='mod'?'#fde68a':'#ffcc00';
+    var isSelf=_user&&u._uid===_user.uid;
+    var roleCell=isSelf
+      ?'<span style="color:#555;font-size:11px">--</span>'
+      :'<select class="role-select" id="role_'+u._uid+'">'
+        +'<option value="member"'+((!u.role||u.role==='member')?' selected':'')+'>Member</option>'
+        +'<option value="mod"'+(u.role==='mod'?' selected':'')+'>Mod</option>'
+        +'<option value="admin"'+(u.role==='admin'?' selected':'')+'>Admin</option>'
+        +'</select> <button class="apply-btn" onclick="applyRole(\'' + u._uid + '\')">Apply</button>';
+    rows+='<tr>'
+      +'<td><strong style="color:#f0f4ff">'+(u.displayName||'--')+'</strong>'+(isSelf?' <span style="font-size:9px;color:#ffcc00;font-family:Arial Black,sans-serif">(YOU)</span>':'')+'</td>'
+      +'<td style="color:#8a9bb8;font-size:11px">'+(u._uid?u._uid.substring(0,12)+'...':'--')+'</td>'
+      +'<td style="color:#8a9bb8;font-size:11px">'+joined+'</td>'
+      +'<td style="color:#8a9bb8">'+(u.favTeam||'--')+'</td>'
+      +'<td><span style="color:'+roleColor+';font-family:Arial Black,Impact,sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase">'+(u.role||'member')+'</span></td>'
+      +'<td>'+roleCell+'</td>'
+      +'</tr>';
+  });
+  tbody.innerHTML=rows;
+}
+
+function filterUsers(){
+  var q=(document.getElementById('adminSearch').value||'').toLowerCase();
+  if(!q){renderAdminTable(_allUsers);return;}
+  renderAdminTable(_allUsers.filter(function(u){
+    return (u.displayName||'').toLowerCase().includes(q)||(u._uid||'').toLowerCase().includes(q)||(u.favTeam||'').toLowerCase().includes(q);
+  }));
+}
+
+function pendingRole(sel){
+  // just visual — actual save on Apply
+}
+
+function applyRole(uid){
+  var sel=document.getElementById('role_'+uid);if(!sel)return;
+  var role=sel.value;
+  _db.ref('users/'+uid+'/role').set(role).then(function(){
+    loadAdminUsers();
+  }).catch(function(e){alert('Error: '+e.message);});
+}
+
+function adminClearChat(){
+  if(!confirm('Delete ALL chat messages permanently?'))return;
+  _db.ref('messages').remove().then(function(){
+    var box=document.getElementById('chatBox');if(box)box.innerHTML='';
+    alert('Chat cleared.');
+  });
+}
+
+// Hook into auth state to show/hide admin tab and load users
+var _origRenderLoggedIn=renderLoggedIn;
+renderLoggedIn=function(){
+  _origRenderLoggedIn();
+  showAdminTab();
+  loadAdminUsers();
+};
+var _origRenderLoggedOut=renderLoggedOut;
+renderLoggedOut=function(){
+  _origRenderLoggedOut();
+  showAdminTab();
+};
+
+</script>
+
+</body>
+</html>
